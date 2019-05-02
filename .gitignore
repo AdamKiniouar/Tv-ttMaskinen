@@ -1,0 +1,15 @@
+.vs
+bin/
+obj/
+node_modules
+packages
+TestResults
+
+*.suo
+*.user
+*.dbmdl
+*.jfm
+*.cache
+*.approved.txt.bak
+*.received.txt
+*.received.txt.bak
