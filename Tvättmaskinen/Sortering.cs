@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.IO;
 using System.Xml;
-using System.IO;
 
 
 namespace Tvättmaskinen
@@ -11,7 +8,7 @@ namespace Tvättmaskinen
     {
         public Sortering() { }
 
-        public void Sort(string filePath, string fileSave, int degree, string förnamn, string efternamn)
+        public void Sort(string filePath, string fileSave, string förnamn, string efternamn)
         {
             DirectoryInfo di = new DirectoryInfo(filePath);
 
@@ -34,12 +31,12 @@ namespace Tvättmaskinen
                         {
                             case "mislife-1.7.2":
                                 var reader17 = new MisLife17();
-                                reader17.Wash(doc, degree, förnamn, efternamn);
+                                reader17.Wash(doc, förnamn, efternamn);
                                 break;
 
                             case "mislife162":
                                 var reader16 = new MisLife16();
-                                reader16.Wash(doc, degree, förnamn, efternamn);
+                                reader16.Wash(doc, förnamn, efternamn);
                                 break;
                         }
                     }
@@ -47,7 +44,7 @@ namespace Tvättmaskinen
                 if (pensionsDocList.Count > 0)
                 {
                     var readerLifepDoc = new MisLifepDoc();
-                    readerLifepDoc.Wash(doc, degree);
+                    readerLifepDoc.Wash(doc);
                 }
 
                 var savePathForFile = fileSave + file.Name.Remove(file.Name.Length - 4, 4) + "-tvättad.xml";//Sparar ned den nya filen med -tvättad.xml tillagd i slutet.
@@ -57,7 +54,7 @@ namespace Tvättmaskinen
                     Directory.CreateDirectory(savePathForFile);
                 }
 
-                doc.Save(savePathForFile);
+               doc.Save(savePathForFile);
             }
         }
     }

@@ -10,12 +10,15 @@ namespace Tvättmaskinen
         static void Main(string[] args)
         {
 
-            var reader = new Reader();
+            string förnamn = "Standard Förnamn";
+            string efternamn = "Standard Efternamn";
+
+            var sortera = new Sortering();
 
             var file = @"C:\Users\Adam_\Desktop\MiP";
-            var fileSave = @"C:\Users\Adam_\Desktop\MiP\172\";
+            var fileSave = @"C:\Users\Adam_\Desktop\MiP\Tvättad\";
 
-            reader.Wash(file, fileSave);
+            sortera.Sort(file, fileSave, förnamn, efternamn);
 
 
             Console.Read();

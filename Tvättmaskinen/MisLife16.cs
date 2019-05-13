@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
 using System.Xml;
 
 namespace Tvättmaskinen
@@ -10,70 +7,59 @@ namespace Tvättmaskinen
     {
         public MisLife16() { }
 
-        public XmlDocument Wash(XmlDocument doc, int degree, string förnamn, string efternamn)
+        public XmlDocument Wash(XmlDocument doc, string förnamn, string efternamn)
         {
-                if (degree == 30 || degree == 90)
+            // get its parent node
+            XmlNode node = doc.SelectSingleNode("/party[name = 'address']");
+
+            // remove the child node
+            node.ParentNode.RemoveChild(node);
+
+            var pinList = doc.GetElementsByTagName("number");
+            foreach (XmlNode pin in pinList)
+            {
+                pin.InnerText = Guid.NewGuid().ToString(); //Pin till nytt guid
+            }            
+
+            var firstnamesList = doc.GetElementsByTagName("firstname");
+            foreach (XmlNode firstname in firstnamesList)
+            {
+                firstname.InnerText = förnamn;
+            }
+            var lastnamesList = doc.GetElementsByTagName("lastname");
+            foreach (XmlNode lastname in lastnamesList)
+            {
+                lastname.InnerText = efternamn;
+            }
+
+            var streetList = doc.GetElementsByTagName("streetpob");
+            foreach (XmlNode streetname in streetList)
+            {
+                streetname.InnerText = "";
+            }
+
+            XmlNodeList personNummerList = doc.GetElementsByTagName("party");
+            foreach (XmlNode personNummer in personNummerList)
+            {
+                if (personNummer.Attributes["ptype"].Value == "IP" || personNummer.Attributes["ptype"].Value == "IN")//Personnummer
                 {
-                    var pinList = doc.GetElementsByTagName("number");
-                    foreach (XmlNode pin in pinList)
+                    string a = personNummer.Attributes["pno"].Value.Remove(0, 11);
+                    string b = a.Substring(0, 1);
+                    int n = int.Parse(b);
+
+                    if (n % 2 == 0)
                     {
-                        pin.InnerText = Guid.NewGuid().ToString(); //Pin till nytt guid
+                        personNummer.Attributes["pno"].Value = personNummer.Attributes["pno"].Value.Substring(0, personNummer.Attributes["pno"].Value.Length - 7) + "01-4321";
                     }
-                }
-
-                if (degree == 40 || degree == 90)
-                {
-                    var firstnamesList = doc.GetElementsByTagName("firstname");
-                    foreach (XmlNode firstname in firstnamesList)
+                    else
                     {
-                        firstname.InnerText = förnamn;
-                }
-                    var lastnamesList = doc.GetElementsByTagName("lastname");
-                    foreach (XmlNode lastname in lastnamesList)
-                    {
-                        lastname.InnerText = efternamn;
+                        personNummer.Attributes["pno"].Value = personNummer.Attributes["pno"].Value.Substring(0, personNummer.Attributes["pno"].Value.Length - 7) + "01-1234";
                     }
-                }
+                }               
+            }
 
-                if (degree == 60 || degree == 90)
-                {                   
-                    XmlNodeList pnoList = doc.GetElementsByTagName("party");
-                    for (int i = 0; i < pnoList.Count; i++)
-                    {
-                        if (pnoList[i].Attributes["ptype"].Value == "IP")//Personnummer
-                        {
-                            string a = pnoList[i].Attributes["pno"].Value.Remove(0, 11);
-                            string b = a.Substring(0, 1);
-                            int n = int.Parse(b);
-
-                            if (n % 2 == 0)
-                            {
-                                pnoList[i].Attributes["pno"].Value = pnoList[i].Attributes["pno"].Value.Substring(0, pnoList[i].Attributes["pno"].Value.Length - 7) + "01-4321";
-                            }
-                            else
-                            {
-                                pnoList[i].Attributes["pno"].Value = pnoList[i].Attributes["pno"].Value.Substring(0, pnoList[i].Attributes["pno"].Value.Length - 7) + "01-1234";
-                            }
-                        }
-                        if (pnoList[i].Attributes["ptype"].Value == "IN")//Personnummer
-                        {
-                            string a = pnoList[i].Attributes["pno"].Value.Remove(0, 11);
-                            string b = a.Substring(0, 1);
-                            int n = int.Parse(b);
-
-                            if (n % 2 == 0)
-                            {
-                                pnoList[i].Attributes["pno"].Value = pnoList[i].Attributes["pno"].Value.Substring(0, pnoList[i].Attributes["pno"].Value.Length - 7) + "01-4321";
-                            }
-                            else
-                            {
-                                pnoList[i].Attributes["pno"].Value = pnoList[i].Attributes["pno"].Value.Substring(0, pnoList[i].Attributes["pno"].Value.Length - 7) + "01-1234";
-                            }
-                        }
-                }
-                }
-         return doc;
+            return doc;
         }
     }
-}   
+}
 

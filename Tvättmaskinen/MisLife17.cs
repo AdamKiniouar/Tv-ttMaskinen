@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
 using System.Xml;
 
 namespace Tvättmaskinen
@@ -12,63 +9,56 @@ namespace Tvättmaskinen
 
         public MisLife17() { }
 
-        public XmlDocument Wash(XmlDocument doc, int degree, string förnamn, string efternamn)
+        public XmlDocument Wash(XmlDocument doc, string förnamn, string efternamn)
         {
-                if (degree == 30 || degree == 90)
-                {
-                    XmlNodeList idList = doc.GetElementsByTagName("Forsakring");
-                    for (int i = 0; i < idList.Count; i++)
-                    {
-                        idList[i].Attributes["Id"].Value = Guid.NewGuid().ToString();//Försäkringd ID till nytt guid
-                    }
-
-                    XmlNodeList adminNRList = doc.GetElementsByTagName("Administration");
-                    for (int i = 0; i < adminNRList.Count; i++)
-                    {
-                        adminNRList[i].Attributes["Forsakringsnummer"].Value = Guid.NewGuid().ToString();//Försäkringsnummer till nytt guid
-                    }
+            XmlNodeList idList = doc.GetElementsByTagName("Forsakring");
+            foreach (XmlNode iD in idList)
+            {
+                iD.Attributes["Id"].Value = Guid.NewGuid().ToString();//Försäkringd ID till nytt guid
             }
 
-                if (degree == 40 || degree == 90)
+            XmlNodeList forNRList = doc.GetElementsByTagName("Administration");
+            foreach (XmlNode forsakringsNR in forNRList)
+            {
+                forsakringsNR.Attributes["Forsakringsnummer"].Value = Guid.NewGuid().ToString();//Försäkringsnummer till nytt guid
+            }
+            
+
+            var fornamnsList = doc.GetElementsByTagName("Fornamn");
+            foreach (XmlNode fornamn in fornamnsList)
+            {
+                fornamn.InnerText = förnamn;
+            }
+
+            var efternamnsList = doc.GetElementsByTagName("Efternamn");
+            foreach (XmlNode efternamnet in efternamnsList)
+            {
+                efternamnet.InnerText = efternamn;
+            }                
+
+            var personNummerList = doc.GetElementsByTagName(personnummer);
+            foreach (XmlNode personNummer in personNummerList)
+            {
+                    string a = personNummer.InnerText.Remove(0, 11);
+                    string b = a.Substring(0, 1);
+                    int n = int.Parse(b);
+
+                    if (n % 2 == 0)
+                    {
+                        personNummer.InnerText = personNummer.InnerText.Remove(personNummer.InnerText.Length - 7, 7) + "01-4321";
+                    }
+                    else
+                    {
+                        personNummer.InnerText = personNummer.InnerText.Remove(personNummer.InnerText.Length - 7, 7) + "01-1234";
+                    }
+
+                XmlNodeList ForsakringsNRList = doc.GetElementsByTagName("Administration");//Försäkringsnummer som också är ett personnummer får ett nytt guid
+                foreach (XmlNode forsakringsNr in ForsakringsNRList)
                 {
-                    var fornamnsList = doc.GetElementsByTagName("Fornamn");
-                    foreach (XmlNode fornamn in fornamnsList)
-                    {
-                        fornamn.InnerText = förnamn;
-                    }
-
-                    var efternamnsList = doc.GetElementsByTagName("Efternamn");
-                    foreach (XmlNode efternamnet in efternamnsList)
-                    {
-                        efternamnet.InnerText = efternamn;
-                    }
+                        forsakringsNr.Attributes["Forsakringsnummer"].Value = Guid.NewGuid().ToString();
                 }
-
-                if (degree == 60 || degree == 90)
-                {
-                    var personNummerList = doc.GetElementsByTagName(personnummer);
-                    foreach (XmlNode personNummer in personNummerList)
-                    {
-                            string a = personNummer.InnerText.Remove(0, 11);
-                            string b = a.Substring(0, 1);
-                            int n = int.Parse(b);
-
-                            if (n % 2 == 0)
-                            {
-                             personNummer.InnerText = personNummer.InnerText.Remove(personNummer.InnerText.Length - 7, 7) + "01-4321";
-                            }
-                            else
-                            {
-                                personNummer.InnerText = personNummer.InnerText.Remove(personNummer.InnerText.Length - 7, 7) + "01-1234";
-                            }
-
-                       XmlNodeList ForsakringsNRList = doc.GetElementsByTagName("Administration");//Försäkringsnummer som också är ett personnummer får ett nytt guid
-                       for (int i = 0; i < ForsakringsNRList.Count; i++)
-                       {
-                                ForsakringsNRList[i].Attributes["Forsakringsnummer"].Value = Guid.NewGuid().ToString();
-                       }
-                    }
-                }
+            }
+                
          return doc;
         }
     }
