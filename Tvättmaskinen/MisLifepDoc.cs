@@ -3,38 +3,36 @@ using System.Xml;
 
 namespace Tvättmaskinen
 {
-    class MisLifepDoc
+    public class MisLifepDoc
     {
-        public MisLifepDoc() { }
-
-        public XmlDocument Wash(XmlDocument doc)
+        public string CleanFile(XmlDocument doc)
         {
+            var fileName = "";
 
-            XmlNodeList PensionIDList = doc.GetElementsByTagName("Pensionsdokument");
+            var PensionIDList = doc.GetElementsByTagName("Pensionsdokument");
             foreach (XmlNode pID in PensionIDList)
             {
-                pID.Attributes["TxId"].Value = Guid.NewGuid().ToString(); //Pensionsdokument TxId till nytt guid
+                pID.Attributes["TxId"].Value = Guid.NewGuid().ToString();
             }
-                
 
-            XmlNodeList PensionList = doc.GetElementsByTagName("Individ");//Personnummer
-            foreach (XmlNode pList in PensionList)
+            var IndividList = doc.GetElementsByTagName("Individ");
+            foreach (XmlNode individList in IndividList)
             {
-                string a = pList.Attributes["Personnummer"].Value.Remove(0, 10);
-                string b = a.Substring(0, 1);
-                int n = int.Parse(b);
+                var lastButOneDigitInPersoalNumber = individList.Attributes["Personnummer"].Value[10];
 
-                if (n % 2 == 0)
+                if (lastButOneDigitInPersoalNumber % 2 == 0)
                 {
-                    pList.Attributes["Personnummer"].Value = pList.Attributes["Personnummer"].Value.Substring(0, pList.Attributes["Personnummer"].Value.Length - 6) + "014321";
+                    fileName = individList.Attributes["Personnummer"].Value.Substring(0, individList.Attributes["Personnummer"].Value.Length - 6) + "014321";
+                    individList.Attributes["Personnummer"].Value = fileName;
                 }
                 else
                 {
-                    pList.Attributes["Personnummer"].Value = pList.Attributes["Personnummer"].Value.Substring(0, pList.Attributes["Personnummer"].Value.Length - 6) + "011234";
+                    fileName = individList.Attributes["Personnummer"].Value.Substring(0, individList.Attributes["Personnummer"].Value.Length - 6) + "011234";
+                    individList.Attributes["Personnummer"].Value = fileName;
                 }
             }
-                
-         return doc;
+
+            return fileName;
         }
     }
 }

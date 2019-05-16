@@ -1,42 +1,45 @@
 ﻿using System.IO;
 using System.Xml;
-
+using System;
 
 namespace Tvättmaskinen
 {
-    class Sortering
+    public class Sortering
     {
-        public Sortering() { }
-
-        public void Sort(string filePath, string fileSave, string förnamn, string efternamn)
+        public void Sort(string filePath, string anonymizedSurname, string anonymizedLastname)
         {
-            DirectoryInfo di = new DirectoryInfo(filePath);
 
-            FileInfo[] files = di.GetFiles("*.xml");//Läser in alla xml filer
+            var savePath = filePath + "/tvättade/";
+
+            var di = new DirectoryInfo(filePath);
+
+            FileInfo[] files = di.GetFiles("*.xml");
             foreach (FileInfo file in files)
             {
                 var doc = new XmlDocument();
                 doc.Load(file.FullName); ;
 
-                XmlNodeList mislifeList = doc.GetElementsByTagName("mislife"); //mislife 1.6 och 1.7
-                XmlNodeList pensionsDocList = doc.GetElementsByTagName("Pensionsinstitut"); //Läser in Pensionsdokument
+                var mislifeList = doc.GetElementsByTagName("mislife");
+                var pensionsDocList = doc.GetElementsByTagName("Pensionsinstitut");
+
+                var fileName = "";
 
                 if (mislifeList.Count > 0)
                 {
                     for (int i = 0; i < mislifeList.Count; i++)
                     {
-                        var mislifeVersion = mislifeList[i].Attributes["version"].Value; //Kollar version av mislife
+                        var mislifeVersion = mislifeList[i].Attributes["version"].Value;
 
                         switch (mislifeVersion)
                         {
                             case "mislife-1.7.2":
                                 var reader17 = new MisLife17();
-                                reader17.Wash(doc, förnamn, efternamn);
+                                fileName = reader17.CleanFile(doc, anonymizedSurname, anonymizedLastname);
                                 break;
 
                             case "mislife162":
                                 var reader16 = new MisLife16();
-                                reader16.Wash(doc, förnamn, efternamn);
+                                fileName = reader16.CleanFile(doc, anonymizedSurname, anonymizedLastname);
                                 break;
                         }
                     }
@@ -44,17 +47,15 @@ namespace Tvättmaskinen
                 if (pensionsDocList.Count > 0)
                 {
                     var readerLifepDoc = new MisLifepDoc();
-                    readerLifepDoc.Wash(doc);
+                    fileName = readerLifepDoc.CleanFile(doc);
                 }
 
-                var savePathForFile = fileSave + file.Name.Remove(file.Name.Length - 4, 4) + "-tvättad.xml";//Sparar ned den nya filen med -tvättad.xml tillagd i slutet.
-
-                if (Directory.Exists(savePathForFile))
+                if (!Directory.Exists(savePath))
                 {
-                    Directory.CreateDirectory(savePathForFile);
+                    Directory.CreateDirectory(savePath);
                 }
 
-               doc.Save(savePathForFile);
+                doc.Save(savePath + fileName + file.Name.Remove(0, 13));
             }
         }
     }

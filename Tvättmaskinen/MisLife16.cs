@@ -3,62 +3,56 @@ using System.Xml;
 
 namespace Tvättmaskinen
 {
-    class MisLife16
+    public class MisLife16
     {
-        public MisLife16() { }
-
-        public XmlDocument Wash(XmlDocument doc, string förnamn, string efternamn)
+        public string CleanFile(XmlDocument doc, string anonymizedSurname, string anonymizedLastname)
         {
-            // get its parent node
-            XmlNode node = doc.SelectSingleNode("/party[name = 'address']");
+            var fileName = "";
 
-            // remove the child node
-            node.ParentNode.RemoveChild(node);
-
-            var pinList = doc.GetElementsByTagName("number");
-            foreach (XmlNode pin in pinList)
+            var numberList = doc.GetElementsByTagName("number");
+            foreach (XmlNode numberPin in numberList)
             {
-                pin.InnerText = Guid.NewGuid().ToString(); //Pin till nytt guid
-            }            
-
-            var firstnamesList = doc.GetElementsByTagName("firstname");
-            foreach (XmlNode firstname in firstnamesList)
-            {
-                firstname.InnerText = förnamn;
-            }
-            var lastnamesList = doc.GetElementsByTagName("lastname");
-            foreach (XmlNode lastname in lastnamesList)
-            {
-                lastname.InnerText = efternamn;
+                numberPin.InnerText = Guid.NewGuid().ToString();
             }
 
-            var streetList = doc.GetElementsByTagName("streetpob");
-            foreach (XmlNode streetname in streetList)
+            var firstnameList = doc.GetElementsByTagName("firstname");
+            foreach (XmlNode firstname in firstnameList)
+            {
+                firstname.InnerText = anonymizedSurname;
+            }
+
+            var lastnameList = doc.GetElementsByTagName("lastname");
+            foreach (XmlNode lastname in lastnameList)
+            {
+                lastname.InnerText = anonymizedLastname;
+            }
+
+            var streetpobList = doc.GetElementsByTagName("streetpob");
+            foreach (XmlNode streetname in streetpobList)
             {
                 streetname.InnerText = "";
             }
 
-            XmlNodeList personNummerList = doc.GetElementsByTagName("party");
-            foreach (XmlNode personNummer in personNummerList)
+            var partyList = doc.GetElementsByTagName("party");
+            foreach (XmlNode party in partyList)
             {
-                if (personNummer.Attributes["ptype"].Value == "IP" || personNummer.Attributes["ptype"].Value == "IN")//Personnummer
+                if (party.Attributes["ptype"].Value == "IP" || party.Attributes["ptype"].Value == "IN")
                 {
-                    string a = personNummer.Attributes["pno"].Value.Remove(0, 11);
-                    string b = a.Substring(0, 1);
-                    int n = int.Parse(b);
+                    var lastButOneDigitInPersoalNumber = party.Attributes["pno"].Value[11];
 
-                    if (n % 2 == 0)
+                    if (lastButOneDigitInPersoalNumber % 2 == 0)
                     {
-                        personNummer.Attributes["pno"].Value = personNummer.Attributes["pno"].Value.Substring(0, personNummer.Attributes["pno"].Value.Length - 7) + "01-4321";
+                        fileName = party.Attributes["pno"].Value.Substring(0, party.Attributes["pno"].Value.Length - 7) + "01-4321";
+                        party.Attributes["pno"].Value = fileName;
                     }
                     else
                     {
-                        personNummer.Attributes["pno"].Value = personNummer.Attributes["pno"].Value.Substring(0, personNummer.Attributes["pno"].Value.Length - 7) + "01-1234";
+                        fileName = party.Attributes["pno"].Value.Substring(0, party.Attributes["pno"].Value.Length - 7) + "01-1234";
+                        party.Attributes["pno"].Value = fileName;
                     }
-                }               
+                }
             }
-
-            return doc;
+            return fileName;
         }
     }
 }

@@ -3,63 +3,53 @@ using System.Xml;
 
 namespace Tvättmaskinen
 {
-    class MisLife17
+    public class MisLife17
     {
-        private readonly string personnummer = "Personnummer";//1.7.2
-
-        public MisLife17() { }
-
-        public XmlDocument Wash(XmlDocument doc, string förnamn, string efternamn)
+        public string CleanFile(XmlDocument doc, string anonymizedSurname, string anonymizedLastname)
         {
-            XmlNodeList idList = doc.GetElementsByTagName("Forsakring");
-            foreach (XmlNode iD in idList)
+            var fileName = "";
+
+            var forsakringsList = doc.GetElementsByTagName("Forsakring");
+            foreach (XmlNode forsakringsiD in forsakringsList)
             {
-                iD.Attributes["Id"].Value = Guid.NewGuid().ToString();//Försäkringd ID till nytt guid
+                forsakringsiD.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
-            XmlNodeList forNRList = doc.GetElementsByTagName("Administration");
-            foreach (XmlNode forsakringsNR in forNRList)
+            var administrationsList = doc.GetElementsByTagName("Administration");
+            foreach (XmlNode administrationsId in administrationsList)
             {
-                forsakringsNR.Attributes["Forsakringsnummer"].Value = Guid.NewGuid().ToString();//Försäkringsnummer till nytt guid
+                administrationsId.Attributes["Forsakringsnummer"].Value = Guid.NewGuid().ToString();
             }
-            
 
             var fornamnsList = doc.GetElementsByTagName("Fornamn");
             foreach (XmlNode fornamn in fornamnsList)
             {
-                fornamn.InnerText = förnamn;
+                fornamn.InnerText = anonymizedSurname;
             }
 
             var efternamnsList = doc.GetElementsByTagName("Efternamn");
-            foreach (XmlNode efternamnet in efternamnsList)
+            foreach (XmlNode Efternamn in efternamnsList)
             {
-                efternamnet.InnerText = efternamn;
-            }                
+                Efternamn.InnerText = anonymizedLastname;
+            }
 
-            var personNummerList = doc.GetElementsByTagName(personnummer);
+            var personNummerList = doc.GetElementsByTagName("Personnummer");
             foreach (XmlNode personNummer in personNummerList)
             {
-                    string a = personNummer.InnerText.Remove(0, 11);
-                    string b = a.Substring(0, 1);
-                    int n = int.Parse(b);
+                var lastButOneDigitInPersoalNumber = personNummer.InnerText[11];
 
-                    if (n % 2 == 0)
-                    {
-                        personNummer.InnerText = personNummer.InnerText.Remove(personNummer.InnerText.Length - 7, 7) + "01-4321";
-                    }
-                    else
-                    {
-                        personNummer.InnerText = personNummer.InnerText.Remove(personNummer.InnerText.Length - 7, 7) + "01-1234";
-                    }
-
-                XmlNodeList ForsakringsNRList = doc.GetElementsByTagName("Administration");//Försäkringsnummer som också är ett personnummer får ett nytt guid
-                foreach (XmlNode forsakringsNr in ForsakringsNRList)
+                if (lastButOneDigitInPersoalNumber % 2 == 0)
                 {
-                        forsakringsNr.Attributes["Forsakringsnummer"].Value = Guid.NewGuid().ToString();
+                    fileName = personNummer.InnerText.Remove(personNummer.InnerText.Length - 7, 7) + "01-4321";
+                    personNummer.InnerText = fileName;
+                }
+                else
+                {
+                    fileName = personNummer.InnerText.Remove(personNummer.InnerText.Length - 7, 7) + "01-1234";
+                    personNummer.InnerText = fileName;
                 }
             }
-                
-         return doc;
+            return fileName;
         }
     }
 }
