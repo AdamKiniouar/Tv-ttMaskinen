@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Xml;
-using System;
+using System.Linq;
 
 namespace Tvättmaskinen
 {
@@ -14,11 +14,14 @@ namespace Tvättmaskinen
             var di = new DirectoryInfo(filePath);
 
             FileInfo[] files = di.GetFiles("*.xml");
+            var fileList = files.GroupBy(x => x.Name.Substring(0, 13)).ToList();
+
             foreach (FileInfo file in files)
             {
+                
                 var doc = new XmlDocument();
-                doc.Load(file.FullName); ;
-
+                doc.Load(file.FullName); 
+                
                 var mislifeList = doc.GetElementsByTagName("mislife");
                 var pensionsDocList = doc.GetElementsByTagName("Pensionsinstitut");
 
