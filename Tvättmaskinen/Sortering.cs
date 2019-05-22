@@ -1,27 +1,47 @@
 ﻿using System.IO;
-using System.Xml;
 using System.Linq;
+using System.Xml;
+
 
 namespace Tvättmaskinen
 {
-    public class Sortering
+    public class Sortering : ISortering
     {
-        public void Sort(string filePath, string anonymizedSurname, string anonymizedLastname)
-        {
+        private IMisLifepDoc _misLifepDoc;
+        private IMisLife16 _misLife16;
+        private IMisLife17 _misLife17;
 
-            var savePath = filePath + "/tvättade/";
+        public Sortering(IMisLifepDoc misLifepDoc, IMisLife16 misLife16, IMisLife17 misLife17)
+        {
+            _misLife17 = misLife17;
+            _misLife16 = misLife16;
+            _misLifepDoc = misLifepDoc;
+        }
+
+        public string _savePath;
+
+        public void Sort(string filePath)
+        {
+            _savePath = filePath + "/Tvättade/";
 
             var di = new DirectoryInfo(filePath);
 
-            FileInfo[] files = di.GetFiles("*.xml");
+            var files = di.GetFiles("*.xml");
             var fileList = files.GroupBy(x => x.Name.Substring(0, 13)).ToList();
 
-            foreach (FileInfo file in files)
+            fileList.ForEach(fileGrouping => 
+                CleanAndSave(fileGrouping.Key, fileGrouping.Select(fileGroup => fileGroup).ToArray()));
+        }
+
+        public void CleanAndSave(string personnummer, FileInfo[] files)
+        {
+            string name = new RandomFirstNameGenerator().name;
+            foreach (var file in files)
             {
-                
-                var doc = new XmlDocument();
-                doc.Load(file.FullName); 
-                
+                 
+                 var doc = new XmlDocument();
+                 doc.Load(file.FullName);
+            
                 var mislifeList = doc.GetElementsByTagName("mislife");
                 var pensionsDocList = doc.GetElementsByTagName("Pensionsinstitut");
 
@@ -36,29 +56,25 @@ namespace Tvättmaskinen
                         switch (mislifeVersion)
                         {
                             case "mislife-1.7.2":
-                                var reader17 = new MisLife17();
-                                fileName = reader17.CleanFile(doc, anonymizedSurname, anonymizedLastname);
+                                fileName = _misLife17.CleanFile(doc, name);
                                 break;
 
                             case "mislife162":
-                                var reader16 = new MisLife16();
-                                fileName = reader16.CleanFile(doc, anonymizedSurname, anonymizedLastname);
+                                fileName = _misLife16.CleanFile(doc, name);
                                 break;
                         }
                     }
                 }
                 if (pensionsDocList.Count > 0)
                 {
-                    var readerLifepDoc = new MisLifepDoc();
-                    fileName = readerLifepDoc.CleanFile(doc);
+                    fileName = _misLifepDoc.CleanFile(doc);
                 }
 
-                if (!Directory.Exists(savePath))
+                if (!Directory.Exists(_savePath))
                 {
-                    Directory.CreateDirectory(savePath);
+                    Directory.CreateDirectory(_savePath);
                 }
-
-                doc.Save(savePath + fileName + file.Name.Remove(0, 13));
+                doc.Save(_savePath + fileName + file.Name.Remove(0, 13));
             }
         }
     }

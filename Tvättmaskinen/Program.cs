@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Tvättmaskinen
 {
@@ -6,16 +7,27 @@ namespace Tvättmaskinen
     {
         public static void Main(string[] args)
         {
-            string anonymizedSurname = "Standard Förnamn";
-            string anonymizedLastname = "Standard Efternamn";
-
-            var sortera = new Sortering();
-
             var file = @"C:\Users\Adam_\Desktop\MiP";
+            var serviceProvider = ConfigureService();
+            var sortering = serviceProvider.GetService<ISortering>();
 
-            sortera.Sort(file, anonymizedSurname, anonymizedLastname);
+            sortering.Sort(file);
 
             Console.Read();
+        }
+
+        private static ServiceProvider ConfigureService()
+        {
+            var serviceCollection = new ServiceCollection()
+              .AddTransient<ISortering, Sortering>()
+              .AddTransient<IMisLife16, MisLife16>()
+              .AddTransient<IMisLife17, MisLife17>()
+              .AddTransient<IMisLifepDoc, MisLifepDoc>()
+         .BuildServiceProvider();
+
+
+
+            return serviceCollection;
         }
     }
 }

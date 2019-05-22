@@ -3,11 +3,18 @@ using System.Xml;
 
 namespace Tvättmaskinen
 {
-    public class MisLife17
+    public class MisLife17 : IMisLife17
     {
-        public string CleanFile(XmlDocument doc, string anonymizedSurname, string anonymizedLastname)
+        public string CleanFile(XmlDocument doc, string anonymizedSurname)
         {
             var fileName = "";
+            var anonymizedLastname = "";
+
+            var ForsakringsList = doc.GetElementsByTagName("Forsakring");
+            foreach (XmlNode forsakring in ForsakringsList)
+            {
+                    anonymizedLastname = forsakring.Attributes["ProduktKod"].Value;
+            }
 
             var forsakringsList = doc.GetElementsByTagName("Forsakring");
             foreach (XmlNode forsakringsiD in forsakringsList)

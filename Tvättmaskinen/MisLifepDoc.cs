@@ -3,10 +3,11 @@ using System.Xml;
 
 namespace Tvättmaskinen
 {
-    public class MisLifepDoc
+    public class MisLifepDoc : IMisLifepDoc
     {
+    
         public string CleanFile(XmlDocument doc)
-        {
+        {        
             var fileName = "";
 
             var PensionIDList = doc.GetElementsByTagName("Pensionsdokument");
