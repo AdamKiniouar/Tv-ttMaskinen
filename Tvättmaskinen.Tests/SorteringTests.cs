@@ -12,9 +12,10 @@ namespace Tvättmaskinen.Tests
             const string path = @"C:\Users\Adam_\Desktop\MiP";
             const string folderPath = path + "\\Tvättade";
             var sut = CreateSortering();
+            var name = "TestPerson";
             
 
-            sut.Sort(path);
+            sut.Sort(path, name);
 
             Assert.True(Directory.Exists(folderPath));
 
@@ -22,10 +23,11 @@ namespace Tvättmaskinen.Tests
         [Fact]
         public void Sort_ShouldGroupFilesInDiffrentKeys()
         {
-            const string path = @".\\TestFiler";
+            const string path = @"C:\Users\Adam_\Desktop\MiP";
             var sut = CreateSortering();
+            var name = "TestPerson";
 
-            var result = sut.Sort(path);
+            sut.Sort(path, name);
 
             Assert.True(result.Count == 4);
         }

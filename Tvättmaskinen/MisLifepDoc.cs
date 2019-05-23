@@ -4,8 +4,7 @@ using System.Xml;
 namespace Tvättmaskinen
 {
     public class MisLifepDoc : IMisLifepDoc
-    {
-    
+    {   
         public string CleanFile(XmlDocument doc)
         {        
             var fileName = "";

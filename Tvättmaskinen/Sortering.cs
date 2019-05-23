@@ -20,7 +20,7 @@ namespace Tvättmaskinen
 
         public string _savePath;
 
-        public void Sort(string filePath)
+        public void Sort(string filePath, string anonymizedSurName)
         {
             _savePath = filePath + "/Tvättade/";
 
@@ -29,16 +29,16 @@ namespace Tvättmaskinen
             var files = di.GetFiles("*.xml");
             var fileList = files.GroupBy(x => x.Name.Substring(0, 13)).ToList();
 
-            fileList.ForEach(fileGrouping => 
-                CleanAndSave(fileGrouping.Key, fileGrouping.Select(fileGroup => fileGroup).ToArray()));
+            for (int i = 0; i < fileList.Count; i++)
+            {
+                CleanAndSave(fileList[i].Key, anonymizedSurName + (i + 1), fileList[i].ToArray());
+            }
         }
 
-        public void CleanAndSave(string personnummer, FileInfo[] files)
+        public void CleanAndSave(string personnummer, string anonymizedSurName, FileInfo[] files)
         {
-            string name = new RandomFirstNameGenerator().name;
             foreach (var file in files)
-            {
-                 
+            {                 
                  var doc = new XmlDocument();
                  doc.Load(file.FullName);
             
@@ -56,11 +56,11 @@ namespace Tvättmaskinen
                         switch (mislifeVersion)
                         {
                             case "mislife-1.7.2":
-                                fileName = _misLife17.CleanFile(doc, name);
+                                fileName = _misLife17.CleanFile(doc, anonymizedSurName);
                                 break;
 
                             case "mislife162":
-                                fileName = _misLife16.CleanFile(doc, name);
+                                fileName = _misLife16.CleanFile(doc, anonymizedSurName);
                                 break;
                         }
                     }

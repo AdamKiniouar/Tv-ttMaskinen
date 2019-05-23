@@ -7,11 +7,14 @@ namespace Tvättmaskinen
     {
         public static void Main(string[] args)
         {
+            var anonymizedSurName = "TestPerson";
+
             var file = @"C:\Users\Adam_\Desktop\MiP";
             var serviceProvider = ConfigureService();
             var sortering = serviceProvider.GetService<ISortering>();
 
-            sortering.Sort(file);
+            sortering.Sort(file, anonymizedSurName);
+
 
             Console.Read();
         }
@@ -24,8 +27,6 @@ namespace Tvättmaskinen
               .AddTransient<IMisLife17, MisLife17>()
               .AddTransient<IMisLifepDoc, MisLifepDoc>()
          .BuildServiceProvider();
-
-
 
             return serviceCollection;
         }

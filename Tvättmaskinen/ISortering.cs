@@ -4,8 +4,8 @@ namespace Tvättmaskinen
 {
     public interface ISortering
     {
-        void Sort(string filePath);
+        void Sort(string filePath, string anonymizedSurName);
 
-        void CleanAndSave(string personnummer, FileInfo[] files);
+        void CleanAndSave(string personnummer, string anonymizedSurName, FileInfo[] files);
     }
 }
