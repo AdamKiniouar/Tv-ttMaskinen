@@ -7,14 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tvättmaskinen", "Tvättmas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tvättmaskinen.Tests", "Tvättmaskinen.Tests\Tvättmaskinen.Tests.csproj", "{35E1C005-6D38-4953-B55F-2BBB21FE8947}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestFiler", "TestFiler", "{5E14A52A-49A6-4743-BDD7-791FFB52C244}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Desktop\MiP\19571008-4444- Skandia (5164060948).xml = ..\..\..\..\Desktop\MiP\19571008-4444- Skandia (5164060948).xml
-		..\..\..\..\Desktop\MiP\19571008-4444-172.xml = ..\..\..\..\Desktop\MiP\19571008-4444-172.xml
-		..\..\..\..\Desktop\MiP\19571008-4444-Pensionsdokument.xml = ..\..\..\..\Desktop\MiP\19571008-4444-Pensionsdokument.xml
-		..\..\..\..\Desktop\MiP\19681029-3333-162.xml = ..\..\..\..\Desktop\MiP\19681029-3333-162.xml
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

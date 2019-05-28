@@ -13,6 +13,7 @@ namespace Tvättmaskinen
             var serviceProvider = ConfigureService();
             var sortering = serviceProvider.GetService<ISortering>();
 
+            sortering.SavePath(file);
             sortering.Sort(file, anonymizedSurName);
 
 

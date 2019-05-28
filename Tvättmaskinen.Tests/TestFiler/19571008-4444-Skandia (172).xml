@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mislife version="mislife-1.7.2" xmlns="http://schemas.sfm.se/mislife-1.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <party pno="165020146865" ptype="S" />
+  <datetime dttype="CD">2012-05-29T15:31:08.6564253+02:00</datetime>
+  <Forsakring Id="f12d21f7-df2b-44fb-8c30-4e5aed2bfd86" Informationstidpunkt="2012-05-29T15:31:08.6564253+02:00" ProduktKod="ITPKU">
+    <Parter>
+      <Forsakrad>
+        <Personnummer>19571008-4444</Personnummer>
+        <Fornamn>Adam</Fornamn>
+        <Efternamn>Kiniouar</Efternamn>
+      </Forsakrad>
+    </Parter>
+    <Administration Forsakringsnummer="197412258969-1I" />
+    <Loner>
+      <Lon>
+        <Enkel Loneperiod="Manad" Omfattning="PensionsmedforandeLon">22875.0000</Enkel>
+      </Lon>
+    </Loner>
+    <Moment xsi:type="FormansbestamdAlderspensionType" Id="c73f7f56-b645-4ee2-ba4e-7248ad29547e" Status="Fribrev" MomenttypKod="Aldre" MomenttypKodAldre="ItpkUrsprunglig">
+      <Teckningstyp>Tjanst</Teckningstyp>
+      <Skattekategori>Pension</Skattekategori>
+      <Formaner>
+        <Forman Typ="Fribrev" Utbetalningstermin="1">
+          <Belopp>4992.0000</Belopp>
+          <Utbetalningsalder ArFast="false">P768M</Utbetalningsalder>
+          <Utbetalningstid Typ="Temporar" ArFast="false">
+            <Tid>P5Y</Tid>
+          </Utbetalningstid>
+        </Forman>
+        <BasbeloppsbegransadTjanstetidsfaktor Basbeloppstyp="Inkomstbasbelopp">1.0000</BasbeloppsbegransadTjanstetidsfaktor>
+      </Formaner>
+    </Moment>
+  </Forsakring>
+  <Forsakring Id="a26f1548-54bb-4072-8471-c1403d7176db" Informationstidpunkt="2012-05-29T15:31:08.6584253+02:00" ProduktKod="ITP">
+    <Parter>
+      <Forsakrad>
+        <Personnummer>19571008-4444</Personnummer>
+        <Fornamn>Adam</Fornamn>
+        <Efternamn>Kiniouar</Efternamn>
+      </Forsakrad>
+    </Parter>
+    <Administration Forsakringsnummer="197412258969-1E" />
+    <Loner>
+      <Lon>
+        <Enkel Loneperiod="Manad" Omfattning="PensionsmedforandeLon">22875.0000</Enkel>
+      </Lon>
+    </Loner>
+    <Moment xsi:type="FormansbestamdAlderspensionType" Id="9886dba5-b8c7-43ff-8952-1922a9010f28" Status="Aktiv" MomenttypKod="Aldre" MomenttypKodAldre="Itp">
+      <Teckningstyp>Tjanst</Teckningstyp>
+      <Skattekategori>Pension</Skattekategori>
+      <Formaner>
+        <Forman Typ="UppskattadForman" Utbetalningstermin="1">
+          <Belopp>2724.0000</Belopp>
+          <Utbetalningsalder ArFast="false">P708M</Utbetalningsalder>
+          <Utbetalningstid Typ="Temporar" ArFast="false">
+            <Tid>P5Y</Tid>
+          </Utbetalningstid>
+        </Forman>
+        <BasbeloppsbegransadTjanstetidsfaktor Basbeloppstyp="Inkomstbasbelopp">1.0000</BasbeloppsbegransadTjanstetidsfaktor>
+      </Formaner>
+    </Moment>
+    <Moment xsi:type="FormansbestamdAlderspensionType" Id="9886dba5-b8c7-43ff-8952-1922a9010f29" Status="Aktiv" MomenttypKod="Aldre" MomenttypKodAldre="Itp">
+      <Teckningstyp>Tjanst</Teckningstyp>
+      <Skattekategori>Pension</Skattekategori>
+      <Formaner>
+        <Forman Typ="UppskattadForman" Utbetalningstermin="1">
+          <Belopp>2724.0000</Belopp>
+          <Utbetalningsalder ArFast="false">P708M</Utbetalningsalder>
+          <Utbetalningstid Typ="Temporar" ArFast="false">
+            <Tid>P5Y</Tid>
+          </Utbetalningstid>
+        </Forman>
+        <BasbeloppsbegransadTjanstetidsfaktor Basbeloppstyp="Inkomstbasbelopp">1.0000</BasbeloppsbegransadTjanstetidsfaktor>
+      </Formaner>
+    </Moment>
+    <Moment xsi:type="FormansbestamdAlderspensionType" Id="9886dba5-b8c7-43ff-8952-1922a9010f30" Status="Aktiv" MomenttypKod="Aldre" MomenttypKodAldre="Itp">
+      <Teckningstyp>Tjanst</Teckningstyp>
+      <Skattekategori>Pension</Skattekategori>
+      <Formaner>
+        <Forman Typ="UppskattadForman" Utbetalningstermin="1">
+          <Belopp>2724.0000</Belopp>
+          <Utbetalningsalder ArFast="false">P708M</Utbetalningsalder>
+          <Utbetalningstid Typ="Livsvarig" ArFast="false" />
+        </Forman>
+        <BasbeloppsbegransadTjanstetidsfaktor Basbeloppstyp="Inkomstbasbelopp">1.0000</BasbeloppsbegransadTjanstetidsfaktor>
+      </Formaner>
+    </Moment>
+    <Moment xsi:type="FormansbestamdAlderspensionType" Id="9886dba5-b8c7-43ff-8952-1922a9010f31" Status="Aktiv" MomenttypKod="Aldre" MomenttypKodAldre="Itp">
+      <Teckningstyp>Tjanst</Teckningstyp>
+      <Skattekategori>Pension</Skattekategori>
+      <Formaner>
+        <Forman Typ="UppskattadForman" Utbetalningstermin="1">
+          <Belopp>2724.0000</Belopp>
+          <Utbetalningsalder ArFast="false">P708M</Utbetalningsalder>
+          <Utbetalningstid Typ="Livsvarig" ArFast="false" />
+        </Forman>
+        <BasbeloppsbegransadTjanstetidsfaktor Basbeloppstyp="Inkomstbasbelopp">1.0000</BasbeloppsbegransadTjanstetidsfaktor>
+      </Formaner>
+    </Moment>
+  </Forsakring>
+  <Forsakring Id="e173459b-117b-4c72-976e-76f9441426dd" Informationstidpunkt="2011-01-01T00:00:00" ProduktKod="Alecta Optimal Pension - ITPK">
+    <Parter>
+      <Forsakrad>
+        <Personnummer>19571008-4444</Personnummer>
+        <Fornamn>Adam</Fornamn>
+        <Efternamn>Kiniouar</Efternamn>
+      </Forsakrad>
+    </Parter>
+    <Administration Forsakringsnummer="1493025" />
+    <Loner>
+      <Lon>
+        <Enkel Loneperiod="Manad" Omfattning="PensionsmedforandeLon">0.0000</Enkel>
+      </Lon>
+    </Loner>
+    <Moment xsi:type="PremiebestamdAlderspensionType" Id="6d39d83c-35b2-4a58-8c0d-f4efdee38657" Status="Aktiv" MomenttypKod="Aldre" MomenttypKodAldre="ItpkEgenpension">
+      <Teckningstyp>Tjanst</Teckningstyp>
+      <Skattekategori>Pension</Skattekategori>
+      <ArKapitalpension>false</ArKapitalpension>
+      <Forvaltningstyp>Traditionell</Forvaltningstyp>
+      <Premie Inbetalningstermin="12">0.0000</Premie>
+      <Kapital>
+        <Traditionell>
+          <Retrospektivreserv>3188.0000</Retrospektivreserv>
+        </Traditionell>
+      </Kapital>
+      <Utbetalningsalder ArFast="false">P708M</Utbetalningsalder>
+      <Utbetalningstid Typ="Temporar" ArFast="false">
+        <Tid>P5Y</Tid>
+      </Utbetalningstid>
+    </Moment>
+  </Forsakring>
+</mislife>
