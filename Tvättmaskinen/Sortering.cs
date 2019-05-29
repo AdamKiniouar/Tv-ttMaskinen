@@ -9,14 +9,23 @@ namespace Tvättmaskinen
     public class Sortering : ISortering
     {
         private IMisLifepDoc _misLifepDoc;
-        private IMisLife16 _misLife16;
-        private IMisLife17 _misLife17;
+        private IMisLife162 _misLife162;
+        private IMisLife172 _misLife172;
+        private IMisLife171 _misLife171;
+        private IMisLife173 _misLife173;
+        private IMisLife174 _misLife174;
+        private IMisLife175 _misLife175;
 
-        public Sortering(IMisLifepDoc misLifepDoc, IMisLife16 misLife16, IMisLife17 misLife17)
-        {
-            _misLife17 = misLife17;
-            _misLife16 = misLife16;
+        public Sortering(IMisLifepDoc misLifepDoc, IMisLife162 misLife162, IMisLife172 misLife172, IMisLife171 misLife171, IMisLife173 misLife173, IMisLife174 misLife174, IMisLife175 misLife175)
+        {           
+            _misLife162 = misLife162;
             _misLifepDoc = misLifepDoc;
+            _misLife171 = misLife171;
+            _misLife172 = misLife172;
+            _misLife173 = misLife173;
+            _misLife174 = misLife174;
+            _misLife175 = misLife175;
+
         }
 
         public string savePath;
@@ -76,11 +85,27 @@ namespace Tvättmaskinen
                         switch (mislifeVersion)
                         {
                             case "mislife-1.7.2":
-                                fileName = _misLife17.CleanFile(doc, anonymizedSurName);
+                                fileName = _misLife172.CleanFile(doc, anonymizedSurName);
                                 break;
 
                             case "mislife162":
-                                fileName = _misLife16.CleanFile(doc, anonymizedSurName);
+                                fileName = _misLife162.CleanFile(doc, anonymizedSurName);
+                                break;
+
+                            case "mislife-1.7.1":
+                                fileName = _misLife171.CleanFile(doc, anonymizedSurName);
+                                break;
+
+                            case "mislife-1.7.3":
+                                fileName = _misLife173.CleanFile(doc, anonymizedSurName);
+                                break;
+
+                            case "mislife-1.7.4":
+                                fileName = _misLife174.CleanFile(doc, anonymizedSurName);
+                                break;
+
+                            case "mislife-1.7.5":
+                                fileName = _misLife175.CleanFile(doc, anonymizedSurName);
                                 break;
                         }
                     }

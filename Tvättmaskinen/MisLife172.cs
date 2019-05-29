@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace Tvättmaskinen
 {
-    public class MisLife17 : IMisLife17
+    public class MisLife172 : IMisLife172
     {
         public string CleanFile(XmlDocument doc, string anonymizedSurname)
         {
@@ -26,6 +26,12 @@ namespace Tvättmaskinen
             foreach (XmlNode administrationsId in administrationsList)
             {
                 administrationsId.Attributes["Forsakringsnummer"].Value = Guid.NewGuid().ToString();
+            }
+
+            var momentList = doc.GetElementsByTagName("Moment");
+            foreach (XmlNode momentId in momentList)
+            {
+                momentId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
             var fornamnsList = doc.GetElementsByTagName("Fornamn");

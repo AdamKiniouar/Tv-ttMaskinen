@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace Tvättmaskinen
 {
-    public class MisLife16 : IMisLife16
+    public class MisLife162 : IMisLife162
     {
         public string CleanFile(XmlDocument doc, string anonymizedSurname)
         {

@@ -62,7 +62,7 @@ namespace Tvättmaskinen.Tests
 
         private Sortering CreateSut()
         {
-            return new Sortering(Substitute.For<IMisLifepDoc>(), Substitute.For<IMisLife16>(), Substitute.For<IMisLife17>());
+            return new Sortering(Substitute.For<IMisLifepDoc>(), Substitute.For<IMisLife162>(), Substitute.For<IMisLife172>());
         }
 
         private string GetTestFilesDirectory()

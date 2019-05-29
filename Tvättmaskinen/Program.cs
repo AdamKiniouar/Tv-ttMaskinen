@@ -24,9 +24,13 @@ namespace Tvättmaskinen
         {
             var serviceCollection = new ServiceCollection()
               .AddTransient<ISortering, Sortering>()
-              .AddTransient<IMisLife16, MisLife16>()
-              .AddTransient<IMisLife17, MisLife17>()
+              .AddTransient<IMisLife162, MisLife162>()
+              .AddTransient<IMisLife172, MisLife172>()
               .AddTransient<IMisLifepDoc, MisLifepDoc>()
+              .AddTransient<IMisLife171, MisLife171>()
+              .AddTransient<IMisLife173, MisLife173>()
+              .AddTransient<IMisLife174, MisLife174>()
+              .AddTransient<IMisLife175, MisLife175>()
          .BuildServiceProvider();
 
             return serviceCollection;
