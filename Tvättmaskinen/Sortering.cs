@@ -27,12 +27,12 @@ namespace Tvättmaskinen
             _misLife175 = misLife175;
 
         }
-        public string savePath;
-        string Todaysdate = DateTime.Now.ToString("-dd-MM-yyyy");
-
+        private string savePath;
+        
         public string SavePath(string path)
         {
-            var savePath = path + "/Tvättade" + Todaysdate + "/";
+            var todaysDate = DateTime.Now.ToString("-yyyy-MM-dd");
+            var savePath = path + "/Tvättade" + todaysDate + "/";
 
             return savePath;
         }
