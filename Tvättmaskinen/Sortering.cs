@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Xml;
 using System.Collections.Generic;
-
+using System;
 
 namespace Tvättmaskinen
 {
@@ -27,12 +27,12 @@ namespace Tvättmaskinen
             _misLife175 = misLife175;
 
         }
-
         public string savePath;
+        string Todaysdate = DateTime.Now.ToString("-dd-MM-yyyy");
 
         public string SavePath(string path)
         {
-            var savePath = path + "/Tvättade/";
+            var savePath = path + "/Tvättade" + Todaysdate + "/";
 
             return savePath;
         }
@@ -116,19 +116,20 @@ namespace Tvättmaskinen
                 }
 
                 CreateNewFolder(savePath);
-                doc.Save(savePath + fileName + file.Name.Remove(0, 13));
+                
+                doc.Save(savePath + fileName + file.Name.Remove(0, 13));                   
             }
         }
 
         public string CreateNewFolder(string path)
         {
-            savePath = path;
+            savePath = path;         
 
             if (!Directory.Exists(savePath))
             {
-                Directory.CreateDirectory(savePath);
+                Directory.CreateDirectory(savePath);                
             }
-            return savePath;
+         return savePath;
         }
     }
 }
