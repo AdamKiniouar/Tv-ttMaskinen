@@ -31,6 +31,8 @@ namespace ConsoleTvättmaskinen
               .AddTransient<IMisLife173, MisLife173>()
               .AddTransient<IMisLife174, MisLife174>()
               .AddTransient<IMisLife175, MisLife175>()
+              .AddTransient<IMisLife176, MisLife176>()
+              .AddTransient<IMisLife20, MisLife20>()
               .AddTransient<IMisLifepDoc, MisLifepDoc>()
             .BuildServiceProvider();
 

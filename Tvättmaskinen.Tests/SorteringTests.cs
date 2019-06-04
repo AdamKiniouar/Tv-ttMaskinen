@@ -49,7 +49,7 @@ namespace Tvättmaskinen.Tests
 
         private Sortering CreateSut()
         {
-            return new Sortering(Substitute.For<IMisLifepDoc>(), Substitute.For<IMisLife162>(), Substitute.For<IMisLife171>(), Substitute.For<IMisLife172>(), Substitute.For<IMisLife173>(), Substitute.For<IMisLife174>(), Substitute.For<IMisLife175>());
+            return new Sortering(Substitute.For<IMisLifepDoc>(), Substitute.For<IMisLife162>(), Substitute.For<IMisLife171>(), Substitute.For<IMisLife172>(), Substitute.For<IMisLife173>(), Substitute.For<IMisLife174>(), Substitute.For<IMisLife175>(), Substitute.For<IMisLife176>(), Substitute.For<IMisLife20>());
         }
 
         private string GetTestFilesDirectory()
