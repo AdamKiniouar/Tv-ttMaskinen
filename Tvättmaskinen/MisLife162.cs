@@ -51,9 +51,9 @@ namespace Tvättmaskinen
             {
                 if (party.Attributes["ptype"].Value == "IP" || party.Attributes["ptype"].Value == "IN")
                 {
-                    var lastButOneDigitInPersoalNumber = party.Attributes["pno"].Value[11];
+                    var lastButOneDigitInPersonalNumber = party.Attributes["pno"].Value[11];
 
-                    if (lastButOneDigitInPersoalNumber % 2 == 0)
+                    if (lastButOneDigitInPersonalNumber % 2 == 0)
                     {
                         fileName = party.Attributes["pno"].Value.Substring(0, party.Attributes["pno"].Value.Length - 7) + "01-4321";
                         party.Attributes["pno"].Value = fileName;

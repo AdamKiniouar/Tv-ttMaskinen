@@ -43,9 +43,9 @@ namespace Tvättmaskinen
             var personNummerList = doc.GetElementsByTagName("ml:Personnummer");
             foreach (XmlNode personNummer in personNummerList)
             {
-                var lastButOneDigitInPersoalNumber = personNummer.InnerText[11];
+                var lastButOneDigitInPersonalNumber = personNummer.InnerText[11];
 
-                if (lastButOneDigitInPersoalNumber % 2 == 0)
+                if (lastButOneDigitInPersonalNumber % 2 == 0)
                 {
                     fileName = personNummer.InnerText.Remove(personNummer.InnerText.Length - 7, 7) + "01-4321";
                     personNummer.InnerText = fileName;

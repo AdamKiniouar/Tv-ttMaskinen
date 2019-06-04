@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NSubstitute;
+using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using NSubstitute;
 using Xunit;
 
 namespace Tvättmaskinen.Tests
@@ -24,6 +22,7 @@ namespace Tvättmaskinen.Tests
             Assert.True(Directory.Exists(folderPath));
 
         }
+
         [Fact]
         public void GetAllXmlFiles_ShouldGetAllXmlFilesWithinFolder()
         {
@@ -48,21 +47,9 @@ namespace Tvättmaskinen.Tests
             Assert.Equal(expected, actual);
         }
 
-        //[Fact]
-        //public void CreateNewFolder_ShouldCreateANewFolder()
-        //{
-        //    var testFilesDirectory = GetTestFilesDirectory();
-        //    var sut = CreateSut();
-
-        //    var actual = sut.CreateNewFolder(testFilesDirectory);
-
-        //    var expected = testFilesDirectory + "/Tvättade/";
-        //    Assert.Equal(expected, actual);
-        //}
-
         private Sortering CreateSut()
         {
-            return new Sortering(Substitute.For<IMisLifepDoc>(), Substitute.For<IMisLife162>(), Substitute.For<IMisLife172>(), Substitute.For<IMisLife171>(), Substitute.For<IMisLife173>(), Substitute.For<IMisLife174>(), Substitute.For<IMisLife175>());
+            return new Sortering(Substitute.For<IMisLifepDoc>(), Substitute.For<IMisLife162>(), Substitute.For<IMisLife171>(), Substitute.For<IMisLife172>(), Substitute.For<IMisLife173>(), Substitute.For<IMisLife174>(), Substitute.For<IMisLife175>());
         }
 
         private string GetTestFilesDirectory()

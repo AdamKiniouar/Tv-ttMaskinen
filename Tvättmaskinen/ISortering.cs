@@ -2,14 +2,10 @@
 using System.Linq;
 using System.Collections.Generic;
 
-
-
 namespace Tvättmaskinen
 {
     public interface ISortering
     {
-        string CreateNewFolder(string path);
-
         List<IGrouping<string, FileInfo>> GroupFiles(FileInfo[] files);
 
         FileInfo[] GetAllXmlFiles(string Path);

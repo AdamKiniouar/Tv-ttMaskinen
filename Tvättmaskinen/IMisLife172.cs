@@ -1,6 +1,5 @@
 ﻿using System.Xml;
 
-
 namespace Tvättmaskinen
 {
     public interface IMisLife172

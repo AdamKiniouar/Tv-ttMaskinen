@@ -8,26 +8,26 @@ namespace Tvättmaskinen
 {
     public class Sortering : ISortering
     {
-        private IMisLifepDoc _misLifepDoc;
-        private IMisLife162 _misLife162;
-        private IMisLife172 _misLife172;
-        private IMisLife171 _misLife171;
-        private IMisLife173 _misLife173;
-        private IMisLife174 _misLife174;
-        private IMisLife175 _misLife175;
+        private IMisLife162 misLife162;
+        private IMisLife171 misLife171;
+        private IMisLife172 misLife172;
+        private IMisLife173 misLife173;
+        private IMisLife174 misLife174;
+        private IMisLife175 misLife175;
+        private IMisLifepDoc misLifepDoc;
 
-        public Sortering(IMisLifepDoc misLifepDoc, IMisLife162 misLife162, IMisLife172 misLife172, IMisLife171 misLife171, IMisLife173 misLife173, IMisLife174 misLife174, IMisLife175 misLife175)
-        {           
-            _misLife162 = misLife162;
-            _misLifepDoc = misLifepDoc;
-            _misLife171 = misLife171;
-            _misLife172 = misLife172;
-            _misLife173 = misLife173;
-            _misLife174 = misLife174;
-            _misLife175 = misLife175;
-
-        }
         private string savePath;
+
+        public Sortering(IMisLifepDoc misLifepDoc, IMisLife162 misLife162, IMisLife171 misLife171, IMisLife172 misLife172, IMisLife173 misLife173, IMisLife174 misLife174, IMisLife175 misLife175)
+        {           
+            this.misLife162 = misLife162;           
+            this.misLife171 = misLife171;
+            this.misLife172 = misLife172;
+            this.misLife173 = misLife173;
+            this.misLife174 = misLife174;
+            this.misLife175 = misLife175;
+            this.misLifepDoc = misLifepDoc;
+        }       
         
         public string SavePath(string path)
         {
@@ -85,51 +85,43 @@ namespace Tvättmaskinen
                         switch (mislifeVersion)
                         {
                             case "mislife-1.7.2":
-                                fileName = _misLife172.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife172.CleanFile(doc, anonymizedSurName);
                                 break;
 
                             case "mislife162":
-                                fileName = _misLife162.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife162.CleanFile(doc, anonymizedSurName);
                                 break;
 
                             case "mislife-1.7.1":
-                                fileName = _misLife171.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife171.CleanFile(doc, anonymizedSurName);
                                 break;
 
                             case "mislife-1.7.3":
-                                fileName = _misLife173.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife173.CleanFile(doc, anonymizedSurName);
                                 break;
 
                             case "mislife-1.7.4":
-                                fileName = _misLife174.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife174.CleanFile(doc, anonymizedSurName);
                                 break;
 
                             case "mislife-1.7.5":
-                                fileName = _misLife175.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife175.CleanFile(doc, anonymizedSurName);
                                 break;
                         }
                     }
                 }
                 if (pensionsDocList.Count > 0)
                 {
-                    fileName = _misLifepDoc.CleanFile(doc);
+                    fileName = misLifepDoc.CleanFile(doc);
                 }
 
-                CreateNewFolder(savePath);
+                if (!Directory.Exists(savePath))
+                {
+                    Directory.CreateDirectory(savePath);
+                }              
                 
-                doc.Save(savePath + fileName + file.Name.Remove(0, 13));                   
+               doc.Save(savePath + fileName + file.Name.Remove(0, 13));                   
             }
-        }
-
-        public string CreateNewFolder(string path)
-        {
-            savePath = path;         
-
-            if (!Directory.Exists(savePath))
-            {
-                Directory.CreateDirectory(savePath);                
-            }
-         return savePath;
-        }
+        }       
     }
 }
