@@ -15,7 +15,15 @@ namespace ConsoleTvättmaskinen
             var serviceProvider = ConfigureService();
             var sortering = serviceProvider.GetService<ISortering>();
 
-            sortering.SavePath(file);
+            try
+            {
+                sortering.SavePath(file);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            
             sortering.Sort(file, anonymizedSurName);
 
             Console.Read();
