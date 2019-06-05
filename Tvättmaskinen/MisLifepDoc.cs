@@ -3,10 +3,10 @@ using System.Xml;
 
 namespace Tvättmaskinen
 {
-    public class MisLifepDoc
-    {
+    public class MisLifepDoc : IMisLifepDoc
+    {   
         public string CleanFile(XmlDocument doc)
-        {
+        {        
             var fileName = "";
 
             var PensionIDList = doc.GetElementsByTagName("Pensionsdokument");
@@ -18,9 +18,9 @@ namespace Tvättmaskinen
             var IndividList = doc.GetElementsByTagName("Individ");
             foreach (XmlNode individList in IndividList)
             {
-                var lastButOneDigitInPersoalNumber = individList.Attributes["Personnummer"].Value[10];
+                var lastButOneDigitInPersonalNumber = individList.Attributes["Personnummer"].Value[10];
 
-                if (lastButOneDigitInPersoalNumber % 2 == 0)
+                if (lastButOneDigitInPersonalNumber % 2 == 0)
                 {
                     fileName = individList.Attributes["Personnummer"].Value.Substring(0, individList.Attributes["Personnummer"].Value.Length - 6) + "014321";
                     individList.Attributes["Personnummer"].Value = fileName;

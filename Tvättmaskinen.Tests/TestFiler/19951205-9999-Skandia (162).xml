@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<mislife version="mislife162" xmlns="http://www.mis.sfm.se/mis162">
+
+  <party pno="19951205-9999" ptype="S" />
+
+  <!-- Observera att detta TxId är slumpmässigt. Det har ingen anknytning till den data från vilken denna svarsfil skapats. -->
+
+  <reference reftype="TXID">e9c62a61-2643-4a7b-9e1e-c9b12907cc4e</reference>
+
+  <datetime dttype="CD">2017-11-03T08:02:32.7503969+01:00</datetime>
+
+  <insurance xmlns="http://www.mis.sfm.se/mis162">
+
+    <number ntype="PIN">2663547</number>
+
+    <indicator itype="PKMP" ind="PA162I" />
+
+    <indicator itype="TAX" ind="T" />
+
+    <indicator itype="ST" ind="G" />
+
+    <indicator itype="ZT" date="2030-10-01" />
+
+    <indicator itype="BT" date="2017-09-29" />
+
+    <text ttype="PP">Kåpan Valbar</text>
+
+    <party ptype="IP" pno="19951205-9999">
+
+    <firstname>Regression</firstname>
+
+      <lastname>PA 16 Avd II Lön 41200 62år</lastname>
+
+    </party>
+
+    <component ctype="OLD">
+
+      <amount atype="LSFR" date="2017-08-31">1537100</amount>
+
+      <indicator itype="FVT" ind="TRAD" />
+
+      <indicator itype="FPB" ind="P" />
+
+      <indicator itype="LSAM" ind="L" />
+
+      <indicator itype="PDRA" ind="K" />
+
+    </component>
+
+  </insurance>
+
+  <insurance xmlns="http://www.mis.sfm.se/mis162">
+
+    <number ntype="PIN">1949146</number>
+
+    <indicator itype="PKMP" ind="PA162K" />
+
+    <indicator itype="TAX" ind="T" />
+
+    <indicator itype="ST" ind="G" />
+
+    <indicator itype="ZT" date="2030-10-01" />
+
+    <indicator itype="BT" date="2017-09-28" />
+
+    <text ttype="PP">Kåpan Tjänste</text>
+
+      <party ptype="IP" pno="19951205-9999">
+
+          <firstname>Regression</firstname>
+
+          <lastname>PA 16 Avd II Lön 41200 62år</lastname>
+
+      </party>
+
+    <component ctype="OLD">
+
+      <amount atype="LSFR" date="2017-08-31">11365700</amount>
+
+      <indicator itype="FVT" ind="TRAD" />
+
+      <indicator itype="FPB" ind="P" />
+
+      <indicator itype="LSAM" ind="L" />
+
+      <indicator itype="PDRA" ind="K" />
+
+    </component>
+
+  </insurance>
+
+  <insurance xmlns="http://www.mis.sfm.se/mis162">
+
+    <number ntype="PIN">1235711</number>
+
+    <indicator itype="PKMP" ind="PA162I" />
+
+    <indicator itype="TAX" ind="T" />
+
+    <indicator itype="ST" ind="G" />
+
+    <indicator itype="ZT" date="2030-10-01" />
+
+    <text ttype="PP">Kåpan Valbar</text>
+
+      <party ptype="IP" pno="19951205-9999">
+
+          <firstname>Regression</firstname>
+
+          <lastname>PA 16 Avd II Lön 41200 62år</lastname>
+
+      </party>
+
+    <component ctype="OLD">
+
+      <amount atype="LSFR" date="2017-08-31">12643200</amount>
+
+      <indicator itype="FVT" ind="TRAD" />
+
+      <indicator itype="FPB" ind="P" />
+
+      <indicator itype="LSAM" ind="L" />
+
+      <indicator itype="PDRA" ind="N" />
+
+    </component>
+
+  </insurance>
+
+</mislife>

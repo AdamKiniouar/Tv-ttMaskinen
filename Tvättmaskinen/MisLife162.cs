@@ -3,16 +3,29 @@ using System.Xml;
 
 namespace Tvättmaskinen
 {
-    public class MisLife16
+    public class MisLife162 : IMisLife162
     {
-        public string CleanFile(XmlDocument doc, string anonymizedSurname, string anonymizedLastname)
+        public string CleanFile(XmlDocument doc, string anonymizedSurname)
         {
             var fileName = "";
+            var anonymizedLastname = "";
+
+            var indicatorList = doc.GetElementsByTagName("indicator");
+            foreach (XmlNode indicator in indicatorList)
+            {
+                if (indicator.Attributes["itype"].Value == "PKMP")
+                {
+                    anonymizedLastname = indicator.Attributes["ind"].Value;
+                }
+            }
 
             var numberList = doc.GetElementsByTagName("number");
             foreach (XmlNode numberPin in numberList)
             {
-                numberPin.InnerText = Guid.NewGuid().ToString();
+                if (numberPin.Attributes["ntype"].Value == "PIN")
+                {
+                    numberPin.InnerText = Guid.NewGuid().ToString();
+                }
             }
 
             var firstnameList = doc.GetElementsByTagName("firstname");
@@ -38,9 +51,9 @@ namespace Tvättmaskinen
             {
                 if (party.Attributes["ptype"].Value == "IP" || party.Attributes["ptype"].Value == "IN")
                 {
-                    var lastButOneDigitInPersoalNumber = party.Attributes["pno"].Value[11];
+                    var lastButOneDigitInPersonalNumber = party.Attributes["pno"].Value[11];
 
-                    if (lastButOneDigitInPersoalNumber % 2 == 0)
+                    if (lastButOneDigitInPersonalNumber % 2 == 0)
                     {
                         fileName = party.Attributes["pno"].Value.Substring(0, party.Attributes["pno"].Value.Length - 7) + "01-4321";
                         party.Attributes["pno"].Value = fileName;

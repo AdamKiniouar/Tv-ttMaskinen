@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mislife version="mislife162" xmlns="http://www.mis.sfm.se/mis162">
+  <party pno="16516406-0948" ptype="S" />
+  <!-- Observera att detta TxId är slumpmässigt. Det har ingen anknytning till den data från vilken denna svarsfil skapats. -->
+  <reference reftype="TXID">78edb40c-69fc-4079-8e73-eb460f3df20d</reference>
+  <datetime dttype="CD">2015-06-09T15:05:49.7261436+02:00</datetime>
+  <insurance instype="FOND" xmlns="http://www.mis.sfm.se/mis162">
+    <number ntype="FF">10000</number>
+    <number ntype="FFYA">020</number>
+    <number ntype="PIN">UL957874-3548-01</number>
+    <amount atype="ALP">97900</amount>
+    <amount atype="FFAF">9000</amount>
+    <amount atype="TIV" date="2015-05-22">24448474</amount>
+    <amount atype="TO">14164000</amount>
+    <indicator date="2010-08-03" itype="BT">
+    </indicator>
+    <indicator date="1995-04-03" itype="DAT">
+    </indicator>
+    <indicator ind="N" itype="KL">
+    </indicator>
+    <indicator ind="N" itype="PB">
+    </indicator>
+    <indicator ind="ITPKE" itype="PKMP">
+    </indicator>
+    <indicator ind="01" itype="PT">
+    </indicator>
+    <indicator ind="G" itype="ST">
+    </indicator>
+    <indicator ind="T" itype="TAX">
+    </indicator>
+    <indicator ind="CO" itype="VALC">
+    </indicator>
+    <indicator date="2022-12-18" itype="ZT">
+    </indicator>
+    <holding hname="Amrego I SICAV Trygghet 80 S - A" htype="fund">
+      <amount atype="AV">17257849</amount>
+      <amount atype="IV" date="2015-05-22">24448474</amount>
+      <number ntype="FSP">10000</number>
+      <number ntype="HID">AM-TR80</number>
+      <number ntype="ISIN">LU0896885406</number>
+      <number ntype="NOS">17486928</number>
+    </holding>
+    <text ttype="TF">ITPKUP165T5</text>
+    <party pno="19571008-4444" ptype="IN">
+      <firstname>KOMPLETTERINGS</firstname>
+      <lastname>PENSION</lastname>
+      <address adtype="P">
+        <streetpob>...................</streetpob>
+        <city>STOCKHOLM</city>
+        <postcode>106 55</postcode>
+      </address>
+    </party>
+    <party pno="19571008-4444" ptype="IP">
+      <firstname>LARS</firstname>
+      <lastname>Löneväxling</lastname>
+      <address adtype="P">
+        <streetpob>DRAGSGATAN 5 LGH 1102</streetpob>
+        <city>NORRKÖPING</city>
+        <postcode>602 19</postcode>
+      </address>
+    </party>
+    <component ctype="OLD">
+      <amount atype="ALP">97900</amount>
+      <indicator ind="P" itype="FPB">
+      </indicator>
+      <indicator ind="FOND" itype="FVT">
+      </indicator>
+      <indicator ind="060" itype="LSAM">
+      </indicator>
+      <indicator ind="F01" itype="LSUT">
+      </indicator>
+      <indicator ind="K" itype="PDRA">
+      </indicator>
+      <text ttype="MB">Ålderspension</text>
+    </component>
+    <component ctype="EFT">
+      <number ntype="DLBP">11000</number>
+      <indicator ind="060" itype="DLAM">
+      </indicator>
+      <indicator ind="F01" itype="DLUT">
+      </indicator>
+      <indicator ind="FOND" itype="FVT">
+      </indicator>
+      <text ttype="MB">EFTERLEVANDEPENSION</text>
+    </component>
+  </insurance>
+  <insurance instype="TPS" xmlns="http://www.mis.sfm.se/mis162">
+    <number ntype="AGN">TJ00208723</number>
+    <number ntype="BTTMB">431</number>
+    <number ntype="FF">6000</number>
+    <number ntype="FNF">UL957874-3548-02</number>
+    <number ntype="IITMB">076</number>
+    <number ntype="KNO">03</number>
+    <number ntype="PIN">S957874-3548-01</number>
+    <number ntype="TF">4000</number>
+    <number ntype="TJTFB">10000</number>
+    <amount atype="PML">63742800</amount>
+    <amount atype="PS" date="2008-04-01">62644800</amount>
+    <amount atype="TIV" date="2015-05-22">64583332</amount>
+    <amount atype="TO">66360800</amount>
+    <amount atype="YS" date="2009-04-01">63742800</amount>
+    <indicator ind="BG" itype="BS">
+    </indicator>
+    <indicator date="2003-09-01" itype="DAT">
+    </indicator>
+    <indicator ind="STA" itype="FF">
+    </indicator>
+    <indicator ind="ALT ITP PREMIETRAPPA" itype="KAT">
+    </indicator>
+    <indicator ind="N" itype="KL">
+    </indicator>
+    <indicator ind="TIO" itype="KTYP">
+    </indicator>
+    <indicator ind="ITP10" itype="PKMP">
+    </indicator>
+    <indicator ind="PRP" itype="PPT">
+    </indicator>
+    <indicator date="2010-01-01" ind="F" itype="ST">
+    </indicator>
+    <indicator ind="T" itype="TAX">
+    </indicator>
+    <holding hname="Amrego I SICAV Trygghet 80 S - A" htype="fund">
+      <amount atype="AV">45588506</amount>
+      <amount atype="IV" date="2015-05-22">64583332</amount>
+      <number ntype="FSP">10000</number>
+      <number ntype="HID">AM-TR80</number>
+      <number ntype="ISIN">LU0896885406</number>
+      <number ntype="NOS">46193643</number>
+    </holding>
+    <text ttype="AFFNAMN">SAAB</text>
+    <text ttype="AFFTYP">TIOTAGGARE</text>
+    <party pno="19571008-4444" ptype="IN">
+      <legalname>SAAB TRANSPONDERTECH AB</legalname>
+      <address adtype="P">
+        <streetpob>BOX 31</streetpob>
+        <city>SUNDSVALL</city>
+        <postcode>851 02</postcode>
+      </address>
+    </party>
+    <party pno="19571008-4444" ptype="IP">
+      <firstname>LARS</firstname>
+      <lastname>Löneväxling</lastname>
+      <address adtype="P">
+        <streetpob>DRAGSGATAN 5 LGH 1102</streetpob>
+        <city>NORRKÖPING</city>
+        <postcode>602 19</postcode>
+      </address>
+    </party>
+    <component ctype="OLD">
+      <number ntype="MGNR">001</number>
+      <number ntype="MID">001</number>
+      <amount atype="FBF" date="2015-05-01">494000</amount>
+      <indicator ind="P" itype="FPB">
+      </indicator>
+      <indicator ind="FOND" itype="FVT">
+      </indicator>
+      <indicator ind="120" itype="LSAM">
+      </indicator>
+      <indicator ind="E01" itype="LSUT">
+      </indicator>
+      <indicator ind="N" itype="PDRA">
+      </indicator>
+      <indicator date="2022-12-18" itype="ZT">
+      </indicator>
+      <text ttype="MB">Ålderspension</text>
+      <text ttype="TF">TPS1 B43RTÅSH  65 00</text>
+    </component>
+    <component ctype="OLD">
+      <number ntype="MGNR">001</number>
+      <number ntype="MID">002</number>
+      <amount atype="LSEA">319100</amount>
+      <amount atype="LSFFE" date="2015-05-01">319104</amount>
+      <amount atype="LSFFI" date="2015-05-01">380904</amount>
+      <amount atype="LSFR" date="2015-05-01">37777400</amount>
+      <amount atype="LSIA" date="2015-05-01">380900</amount>
+      <amount atype="LSTA" date="2015-05-01">30902700</amount>
+      <indicator ind="P" itype="FPB">
+      </indicator>
+      <indicator ind="TRAD" itype="FVT">
+      </indicator>
+      <indicator ind="120" itype="LSAM">
+      </indicator>
+      <indicator ind="E01" itype="LSUT">
+      </indicator>
+      <indicator ind="N" itype="PDRA">
+      </indicator>
+      <indicator date="2022-12-18" itype="ZT">
+      </indicator>
+      <text ttype="MB">Ålderspension</text>
+      <text ttype="TF">TPS1 B43RTÅSH  65 00</text>
+    </component>
+    <component ctype="EFT">
+      <number ntype="MGNR">001</number>
+      <number ntype="MID">003</number>
+      <amount atype="DLEA">748400</amount>
+      <amount atype="DLFX" date="2015-05-01">748400</amount>
+      <amount atype="DLIA" date="2015-05-01">826800</amount>
+      <indicator ind="120" itype="DLAM">
+      </indicator>
+      <indicator ind="E01" itype="DLUT">
+      </indicator>
+      <indicator ind="TRAD" itype="FVT">
+      </indicator>
+      <indicator date="2022-12-18" itype="ZT">
+      </indicator>
+      <text ttype="MB">ÅTERBETALNINGSSKYDD</text>
+      <text ttype="TF">TPS1 B43RTÅSH  65 00</text>
+    </component>
+  </insurance>
+  <insurance instype="TPS" xmlns="http://www.mis.sfm.se/mis162">
+    <number ntype="AGN">TJ00208723</number>
+    <number ntype="BTTMB">173</number>
+    <number ntype="IITMB">018</number>
+    <number ntype="KNO">12</number>
+    <number ntype="PIN">S957874-3548-02</number>
+    <number ntype="TF">10000</number>
+    <number ntype="TJTFB">04805</number>
+    <amount atype="PML">64354800</amount>
+    <amount atype="PS" date="2009-04-01">63742800</amount>
+    <amount atype="TO">3481200</amount>
+    <amount atype="YS" date="2009-04-01">64354800</amount>
+    <indicator ind="BG" itype="BS">
+    </indicator>
+    <indicator date="2008-07-01" itype="DAT">
+    </indicator>
+    <indicator ind="STA" itype="FF">
+    </indicator>
+    <indicator ind="KOMPENSATIONSPREMIE 9%" itype="KAT">
+    </indicator>
+    <indicator ind="N" itype="KL">
+    </indicator>
+    <indicator ind="KOL" itype="KTYP">
+    </indicator>
+    <indicator ind="ÖVRIGTJP" itype="PKMP">
+    </indicator>
+    <indicator ind="PRP" itype="PPT">
+    </indicator>
+    <indicator date="2010-01-01" ind="F" itype="ST">
+    </indicator>
+    <indicator ind="T" itype="TAX">
+    </indicator>
+    <text ttype="AFFNAMN">SAAB</text>
+    <text ttype="AFFTYP">TIOTAGGARE</text>
+    <party pno="19571008-4444" ptype="IN">
+      <legalname>SAAB TRANSPONDERTECH AB</legalname>
+      <address adtype="P">
+        <streetpob>BOX 31</streetpob>
+        <city>SUNDSVALL</city>
+        <postcode>851 02</postcode>
+      </address>
+    </party>
+    <party pno="19571008-4444" ptype="IP">
+      <firstname>LARS</firstname>
+      <lastname>Löneväxling</lastname>
+      <address adtype="P">
+        <streetpob>DRAGSGATAN 5 LGH 1102</streetpob>
+        <city>NORRKÖPING</city>
+        <postcode>602 19</postcode>
+      </address>
+    </party>
+    <component ctype="OLD">
+      <number ntype="MGNR">001</number>
+      <number ntype="MID">001</number>
+      <amount atype="LSEA">72400</amount>
+      <amount atype="LSFFE" date="2015-05-01">72437</amount>
+      <amount atype="LSFFI" date="2015-05-01">83537</amount>
+      <amount atype="LSFR" date="2015-05-01">4466100</amount>
+      <amount atype="LSIA" date="2015-05-01">83500</amount>
+      <amount atype="LSTA" date="2015-05-01">3785100</amount>
+      <indicator ind="P" itype="FPB">
+      </indicator>
+      <indicator ind="TRAD" itype="FVT">
+      </indicator>
+      <indicator ind="060" itype="LSAM">
+      </indicator>
+      <indicator ind="E01" itype="LSUT">
+      </indicator>
+      <indicator ind="N" itype="PDRA">
+      </indicator>
+      <indicator date="2022-12-18" itype="ZT">
+      </indicator>
+      <text ttype="MB">Ålderspension</text>
+      <text ttype="PP">Tjänstepension</text>
+      <text ttype="TF">TPS1 B43RTÅSH  65 00</text>
+    </component>
+    <component ctype="EFT">
+      <number ntype="MGNR">001</number>
+      <number ntype="MID">002</number>
+      <amount atype="DLEA">65400</amount>
+      <amount atype="DLFX" date="2015-05-01">65400</amount>
+      <amount atype="DLIA" date="2015-05-01">77400</amount>
+      <indicator ind="060" itype="DLAM">
+      </indicator>
+      <indicator ind="E01" itype="DLUT">
+      </indicator>
+      <indicator ind="TRAD" itype="FVT">
+      </indicator>
+      <indicator date="2022-12-18" itype="ZT">
+      </indicator>
+      <text ttype="MB">ÅTERBETALNINGSSKYDD</text>
+      <text ttype="TF">TPS1 B43RTÅSH  65 00</text>
+    </component>
+  </insurance>
+  <insurance instype="ITP13 AVD 2" xmlns="http://www.mis.sfm.se/mis162">
+    <number ntype="BTTMB">000</number>
+    <number ntype="IITMB">006</number>
+    <number ntype="PIN">S957874-3548-03</number>
+    <number ntype="TF">10000</number>
+    <number ntype="TJTFB">00000</number>
+    <amount atype="ALP">147800</amount>
+    <amount atype="TO">523300</amount>
+    <indicator date="2015-05-29" itype="BT">
+    </indicator>
+    <indicator date="2015-01-01" itype="DAT">
+    </indicator>
+    <indicator ind="STA" itype="FF">
+    </indicator>
+    <indicator ind="N" itype="KL">
+    </indicator>
+    <indicator ind="EP" itype="KTYP">
+    </indicator>
+    <indicator ind="ITPKE" itype="PKMP">
+    </indicator>
+    <indicator ind="00" itype="PT">
+    </indicator>
+    <indicator ind="G" itype="ST">
+    </indicator>
+    <indicator ind="T" itype="TAX">
+    </indicator>
+    <indicator ind="CO" itype="VALC">
+    </indicator>
+    <party pno="19571008-4444" ptype="IN">
+      <legalname>AVTALSPENSION</legalname>
+      <address adtype="P">
+      </address>
+    </party>
+    <party pno="19571008-4444" ptype="IP">
+      <firstname>LARS MAGNUS</firstname>
+      <lastname>Löneväxling</lastname>
+      <address adtype="P">
+        <streetpob>DRAGSGATAN 5 LGH 1102</streetpob>
+        <city>NORRKÖPING</city>
+        <postcode>602 19</postcode>
+      </address>
+    </party>
+    <component ctype="OLD">
+      <number ntype="MGNR">001</number>
+      <number ntype="MID">001</number>
+      <amount atype="LSEA">1900</amount>
+      <amount atype="LSFFE" date="2015-05-01">1850</amount>
+      <amount atype="LSFFI" date="2015-05-01">1850</amount>
+      <amount atype="LSFR" date="2015-05-01">528600</amount>
+      <amount atype="LSIA" date="2015-05-01">1900</amount>
+      <amount atype="LSTA" date="2015-05-01">523500</amount>
+      <indicator ind="P" itype="FPB">
+      </indicator>
+      <indicator ind="TRAD" itype="FVT">
+      </indicator>
+      <indicator ind="L" itype="LSAM">
+      </indicator>
+      <indicator ind="E01" itype="LSUT">
+      </indicator>
+      <indicator ind="K" itype="PDRA">
+      </indicator>
+      <indicator date="2022-12-18" itype="ZT">
+      </indicator>
+      <text ttype="MB">Ålderspension</text>
+      <text ttype="TF">ITPK ITP13ÅS   0 00</text>
+    </component>
+    <component ctype="EFT">
+      <number ntype="MGNR">001</number>
+      <number ntype="MID">002</number>
+      <amount atype="DLEA">8800</amount>
+      <amount atype="DLIA" date="2015-05-01">8900</amount>
+      <indicator ind="060" itype="DLAM">
+      </indicator>
+      <indicator ind="E01" itype="DLUT">
+      </indicator>
+      <indicator ind="TRAD" itype="FVT">
+      </indicator>
+      <indicator date="2022-12-18" itype="ZT">
+      </indicator>
+      <text ttype="MB">ÅTERBETALNINGSSKYDD</text>
+      <text ttype="TF">ITPK ITP13ÅS   0 00</text>
+    </component>
+  </insurance>
+</mislife>

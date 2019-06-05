@@ -3,22 +3,29 @@ using System.Xml;
 
 namespace Tvättmaskinen
 {
-    public class MisLife17
+    public class MisLife175 : IMisLife175
     {
-        public string CleanFile(XmlDocument doc, string anonymizedSurname, string anonymizedLastname)
+        public string CleanFile(XmlDocument doc, string anonymizedSurname)
         {
             var fileName = "";
+            var anonymizedLastname = "";
 
-            var forsakringsList = doc.GetElementsByTagName("Forsakring");
+            var ForsakringsList = doc.GetElementsByTagName("ml:Forsakring");
+            foreach (XmlNode forsakring in ForsakringsList)
+            {
+                anonymizedLastname = forsakring.Attributes["KollektivavtalKod"].Value;
+            }
+
+            var forsakringsList = doc.GetElementsByTagName("ml:Forsakring");
             foreach (XmlNode forsakringsiD in forsakringsList)
             {
                 forsakringsiD.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
-            var administrationsList = doc.GetElementsByTagName("Administration");
-            foreach (XmlNode administrationsId in administrationsList)
+            var momentList = doc.GetElementsByTagName("ml:Moment");
+            foreach (XmlNode momentsId in momentList)
             {
-                administrationsId.Attributes["Forsakringsnummer"].Value = Guid.NewGuid().ToString();
+                momentsId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
             var fornamnsList = doc.GetElementsByTagName("Fornamn");
@@ -33,12 +40,12 @@ namespace Tvättmaskinen
                 Efternamn.InnerText = anonymizedLastname;
             }
 
-            var personNummerList = doc.GetElementsByTagName("Personnummer");
+            var personNummerList = doc.GetElementsByTagName("ml:Personnummer");
             foreach (XmlNode personNummer in personNummerList)
             {
-                var lastButOneDigitInPersoalNumber = personNummer.InnerText[11];
+                var lastButOneDigitInPersonalNumber = personNummer.InnerText[11];
 
-                if (lastButOneDigitInPersoalNumber % 2 == 0)
+                if (lastButOneDigitInPersonalNumber % 2 == 0)
                 {
                     fileName = personNummer.InnerText.Remove(personNummer.InnerText.Length - 7, 7) + "01-4321";
                     personNummer.InnerText = fileName;
@@ -53,4 +60,3 @@ namespace Tvättmaskinen
         }
     }
 }
-
