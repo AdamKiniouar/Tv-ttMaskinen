@@ -16,7 +16,7 @@ namespace Tvättmaskinen
                 anonymizedLastname = organisationsNamn.InnerText;
             }
 
-            var forsakringsNummerList = doc.GetElementsByTagName("mis20: forsakringsnummer");
+            var forsakringsNummerList = doc.GetElementsByTagName("mis20:forsakringsnummer");
             foreach (XmlNode forsakringsNummer in forsakringsNummerList)
             {
                 forsakringsNummer.InnerText = Guid.NewGuid().ToString();
