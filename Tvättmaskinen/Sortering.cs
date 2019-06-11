@@ -126,6 +126,7 @@ namespace Tvättmaskinen
                             case "mislife-1.7.6":
                                 fileName = misLife176.CleanFile(doc, anonymizedSurName);
                                 break;
+
                         }
                     }
                 }

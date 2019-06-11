@@ -9,7 +9,7 @@ namespace Tvättmaskinen
         {
             var fileName = "";
             var anonymizedLastname = "";
-
+            var testaaa = doc.FirstChild.Prefix;
             var ForsakringsList = doc.GetElementsByTagName("ml:Forsakring");
             foreach (XmlNode forsakring in ForsakringsList)
             {
