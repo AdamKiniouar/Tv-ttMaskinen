@@ -28,13 +28,13 @@ namespace Tvättmaskinen
                 momentsId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
-            var fornamnsList = doc.GetElementsByTagName("Fornamn");
+            var fornamnsList = doc.GetElementsByTagName("ml:Fornamn");
             foreach (XmlNode fornamn in fornamnsList)
             {
                 fornamn.InnerText = anonymizedSurname;
             }
 
-            var efternamnsList = doc.GetElementsByTagName("Efternamn");
+            var efternamnsList = doc.GetElementsByTagName("ml:Efternamn");
             foreach (XmlNode Efternamn in efternamnsList)
             {
                 Efternamn.InnerText = anonymizedLastname;

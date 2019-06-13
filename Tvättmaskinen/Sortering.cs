@@ -34,7 +34,7 @@ namespace Tvättmaskinen
         }       
         
         public string SavePath(string path)
-        {
+        {       
             var todaysDate = DateTime.Now.ToString("-yyyy-MM-dd");
             var savePath = path + "/Tvättade" + todaysDate + "/";
 
@@ -43,15 +43,26 @@ namespace Tvättmaskinen
 
         public void Sort(string Path, string anonymizedSurName)
         {
-            savePath = SavePath(Path);
-
-            FileInfo[] files = GetAllXmlFiles(Path);
-
-            List<IGrouping<string, FileInfo>> fileList = GroupFiles(files);
-
-            for (int i = 0; i < fileList.Count; i++)
+            try
             {
-                CleanAndSave(fileList[i].Key, anonymizedSurName + (i + 1), fileList[i].ToArray());
+                savePath = SavePath(Path);
+
+                Console.WriteLine("Läser in alla XML filer ifrån mappen");
+                FileInfo[] files = GetAllXmlFiles(Path);
+
+                Console.WriteLine("Grupperar filerna efter personnummer");
+                List<IGrouping<string, FileInfo>> fileList = GroupFiles(files);
+
+                Console.WriteLine("Tvättar filerna");
+                for (int i = 0; i < fileList.Count; i++)
+                {
+                    CleanAndSave(fileList[i].Key, anonymizedSurName + (i + 1), fileList[i].ToArray());
+                }
+                Console.WriteLine("Sparar de tvättade filerna");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
@@ -62,14 +73,13 @@ namespace Tvättmaskinen
 
         public FileInfo[] GetAllXmlFiles(string Path)
         {
-            var di = new DirectoryInfo(Path);
-
+            var di = new DirectoryInfo(Path);            
             var files = di.GetFiles("*.xml");
             return files;
         }
-
+        
         public void CleanAndSave(string personnummer, string anonymizedSurName, FileInfo[] files)
-        {
+        {           
             foreach (var file in files)
             {
                 var doc = new XmlDocument();
@@ -79,7 +89,7 @@ namespace Tvättmaskinen
                 var pensionsDocList = doc.GetElementsByTagName("Pensionsinstitut");
                 var misLifeList20 = doc.GetElementsByTagName("mis20:mislife");
 
-                var fileName = "";
+                var fileName = "";               
 
                 if (mislifeList.Count > 0)
                 {
@@ -116,6 +126,7 @@ namespace Tvättmaskinen
                             case "mislife-1.7.6":
                                 fileName = misLife176.CleanFile(doc, anonymizedSurName);
                                 break;
+
                         }
                     }
                 }
@@ -141,11 +152,11 @@ namespace Tvättmaskinen
 
                 if (!Directory.Exists(savePath))
                 {
+                    Console.WriteLine("Skapar en ny mapp för de tvättade filerna");
                     Directory.CreateDirectory(savePath);
-                }              
-                
-               doc.Save(savePath + fileName + file.Name.Remove(0, 13));                   
-            }
-        }       
+                }             
+                doc.Save(savePath + fileName + file.Name.Remove(0, 13));                   
+            }          
+        }
     }
 }

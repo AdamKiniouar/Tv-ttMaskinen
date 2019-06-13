@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Xml;
+using System.Xml.XPath;
+using System.Xml.Linq;
+using System.IO;
 
 namespace Tvättmaskinen
 {
@@ -7,8 +10,18 @@ namespace Tvättmaskinen
     {
         public string CleanFile(XmlDocument doc, string anonymizedSurname)
         {
+            //var firstchild = doc.ChildNodes[0].NamespaceURI;
+            //var mgr = new XmlNamespaceManager(doc.NameTable);
+            //mgr.AddNamespace("ml", firstchild);
+            //var fornamn = doc.SelectNodes("//ml:fornamn", mgr);
+            //foreach (XmlNode fornamnet in fornamn)
+            //{
+            //    fornamnet.InnerText = anonymizedSurname;
+            //}
+
             var fileName = "";
             var anonymizedLastname = "";
+            var testaaa = doc.FirstChild.Prefix;
 
             var organisationsNamnList = doc.GetElementsByTagName("mis20:organisationsnamn");
             foreach (XmlNode organisationsNamn in organisationsNamnList)
@@ -20,12 +33,18 @@ namespace Tvättmaskinen
             foreach (XmlNode forsakringsNummer in forsakringsNummerList)
             {
                 forsakringsNummer.InnerText = Guid.NewGuid().ToString();
-            }      
+            }
 
             var fornamnsList = doc.GetElementsByTagName("mis20:fornamn");
             foreach (XmlNode fornamn in fornamnsList)
             {
                 fornamn.InnerText = anonymizedSurname;
+            }
+
+            var fornamnssList = doc.GetElementsByTagName("fornamn");
+            foreach (XmlNode fornamnn in fornamnssList)
+            {
+                fornamnn.InnerText = anonymizedSurname;
             }
 
             var efternamnsList = doc.GetElementsByTagName("mis20:efternamn");
