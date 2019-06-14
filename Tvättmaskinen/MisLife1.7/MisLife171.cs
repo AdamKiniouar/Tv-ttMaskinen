@@ -10,16 +10,16 @@ namespace Tvättmaskinen
             var fileName = "";
             var anonymizedLastname = "";
 
-            var anslutningsList = doc.GetElementsByTagName("ml:Anslutning");
-            foreach (XmlNode anslutning in anslutningsList)
+            var anslutningList = doc.GetElementsByTagName("ml:Anslutning");
+            foreach (XmlNode anslutning in anslutningList)
             {
                 anonymizedLastname = anslutning.Attributes["AvtalKod"].Value;
             }
 
-            var anslutningsIdList = doc.GetElementsByTagName("ml:Anslutning");
-            foreach (XmlNode anslutningsId in anslutningsIdList)
+            var anslutningIdList = doc.GetElementsByTagName("ml:Anslutning");
+            foreach (XmlNode anslutningId in anslutningIdList)
             {
-                anslutningsId.Attributes["Id"].Value = Guid.NewGuid().ToString();
+                anslutningId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
             var momentList = doc.GetElementsByTagName("ml:Moment");
@@ -28,14 +28,14 @@ namespace Tvättmaskinen
                 momentId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
-            var fornamnsList = doc.GetElementsByTagName("ml:Fornamn");
-            foreach (XmlNode fornamn in fornamnsList)
+            var fornamnList = doc.GetElementsByTagName("ml:Fornamn");
+            foreach (XmlNode fornamn in fornamnList)
             {
                 fornamn.InnerText = anonymizedSurname;
             }
 
-            var efternamnsList = doc.GetElementsByTagName("ml:Efternamn");
-            foreach (XmlNode Efternamn in efternamnsList)
+            var efternamnList = doc.GetElementsByTagName("ml:Efternamn");
+            foreach (XmlNode Efternamn in efternamnList)
             {
                 Efternamn.InnerText = anonymizedLastname;
             }

@@ -47,7 +47,7 @@ namespace Tvättmaskinen
             {
                 savePath = SavePath(Path);
 
-                Console.WriteLine("Läser in alla XML filer ifrån mappen");
+                Console.WriteLine("Läser in alla XML filer ur sökvägen");
                 FileInfo[] files = GetAllXmlFiles(Path);
 
                 Console.WriteLine("Grupperar filerna efter personnummer");

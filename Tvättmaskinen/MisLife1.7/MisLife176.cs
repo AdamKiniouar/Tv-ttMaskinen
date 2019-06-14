@@ -10,32 +10,32 @@ namespace Tvättmaskinen
             var fileName = "";
             var anonymizedLastname = "";
 
-            var ForsakringsList = doc.GetElementsByTagName("ml:Forsakring");
-            foreach (XmlNode forsakring in ForsakringsList)
+            var forsakringList = doc.GetElementsByTagName("ml:Forsakring");
+            foreach (XmlNode forsakring in forsakringList)
             {
                 anonymizedLastname = forsakring.Attributes["KollektivavtalKod"].Value;
             }
 
-            var forsakringsList = doc.GetElementsByTagName("ml:Forsakring");
-            foreach (XmlNode forsakringsiD in forsakringsList)
+            var forsakringIdList = doc.GetElementsByTagName("ml:Forsakring");
+            foreach (XmlNode forsakringiD in forsakringIdList)
             {
-                forsakringsiD.Attributes["Id"].Value = Guid.NewGuid().ToString();
+                forsakringiD.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
             var momentList = doc.GetElementsByTagName("ml:Moment");
-            foreach (XmlNode momentsId in momentList)
+            foreach (XmlNode momentId in momentList)
             {
-                momentsId.Attributes["Id"].Value = Guid.NewGuid().ToString();
+                momentId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
-            var fornamnsList = doc.GetElementsByTagName("Fornamn");
-            foreach (XmlNode fornamn in fornamnsList)
+            var fornamnList = doc.GetElementsByTagName("Fornamn");
+            foreach (XmlNode fornamn in fornamnList)
             {
                 fornamn.InnerText = anonymizedSurname;
             }
 
-            var efternamnsList = doc.GetElementsByTagName("Efternamn");
-            foreach (XmlNode Efternamn in efternamnsList)
+            var efternamnList = doc.GetElementsByTagName("Efternamn");
+            foreach (XmlNode Efternamn in efternamnList)
             {
                 Efternamn.InnerText = anonymizedLastname;
             }

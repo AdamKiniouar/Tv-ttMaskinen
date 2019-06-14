@@ -25,20 +25,14 @@ namespace Tvättmaskinen
                 forsakringsNummer.InnerText = Guid.NewGuid().ToString();
             }
 
-            var fornamnsList = doc.GetElementsByTagName("mis20:fornamn");
-            foreach (XmlNode fornamn in fornamnsList)
+            var fornamnList = doc.GetElementsByTagName("mis20:fornamn");
+            foreach (XmlNode fornamn in fornamnList)
             {
                 fornamn.InnerText = anonymizedSurname;
             }
 
-            var fornamnssList = doc.GetElementsByTagName("mis20:fornamn");
-            foreach (XmlNode fornamnn in fornamnssList)
-            {
-                fornamnn.InnerText = anonymizedSurname;
-            }
-
-            var efternamnsList = doc.GetElementsByTagName("mis20:efternamn");
-            foreach (XmlNode Efternamn in efternamnsList)
+            var efternamnList = doc.GetElementsByTagName("mis20:efternamn");
+            foreach (XmlNode Efternamn in efternamnList)
             {
                 Efternamn.InnerText = anonymizedLastname;
             }
