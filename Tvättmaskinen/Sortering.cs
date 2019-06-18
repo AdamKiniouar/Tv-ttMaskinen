@@ -41,13 +41,13 @@ namespace Tvättmaskinen
             return savePath;
         }
 
-        public void Sort(string Path, string anonymizedSurName)
+        public void Sort(string Path, string anonymizedFörnamn)
         {
             try
             {
                 savePath = SavePath(Path);
 
-                Console.WriteLine("Läser in alla XML filer ifrån mappen");
+                Console.WriteLine("Läser in alla XML filer ur sökvägen");
                 FileInfo[] files = GetAllXmlFiles(Path);
 
                 Console.WriteLine("Grupperar filerna efter personnummer");
@@ -56,7 +56,7 @@ namespace Tvättmaskinen
                 Console.WriteLine("Tvättar filerna");
                 for (int i = 0; i < fileList.Count; i++)
                 {
-                    CleanAndSave(fileList[i].Key, anonymizedSurName + (i + 1), fileList[i].ToArray());
+                    CleanAndSave(fileList[i].Key, anonymizedFörnamn + (i + 1), fileList[i].ToArray());
                 }
                 Console.WriteLine("Sparar de tvättade filerna");
             }
@@ -75,10 +75,18 @@ namespace Tvättmaskinen
         {
             var di = new DirectoryInfo(Path);            
             var files = di.GetFiles("*.xml");
+            if(files.Length > 1)
+            {
+                return files;
+            }
+            else
+            {
+                Console.WriteLine("OBS! Inga XML filer funna i den angivna mappen!");
+            }
             return files;
         }
         
-        public void CleanAndSave(string personnummer, string anonymizedSurName, FileInfo[] files)
+        public void CleanAndSave(string personnummer, string anonymizedFörnamn, FileInfo[] files)
         {           
             foreach (var file in files)
             {
@@ -100,31 +108,31 @@ namespace Tvättmaskinen
                         switch (mislifeVersion)
                         {                            
                             case "mislife162":
-                                fileName = misLife162.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife162.CleanFile(doc, anonymizedFörnamn);
                                 break;
 
                             case "mislife-1.7.1":
-                                fileName = misLife171.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife171.CleanFile(doc, anonymizedFörnamn);
                                 break;
 
                             case "mislife-1.7.2":
-                                fileName = misLife172.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife172.CleanFile(doc, anonymizedFörnamn);
                                 break;
 
                             case "mislife-1.7.3":
-                                fileName = misLife173.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife173.CleanFile(doc, anonymizedFörnamn);
                                 break;
 
                             case "mislife-1.7.4":
-                                fileName = misLife174.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife174.CleanFile(doc, anonymizedFörnamn);
                                 break;
 
                             case "mislife-1.7.5":
-                                fileName = misLife175.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife175.CleanFile(doc, anonymizedFörnamn);
                                 break;
 
                             case "mislife-1.7.6":
-                                fileName = misLife176.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife176.CleanFile(doc, anonymizedFörnamn);
                                 break;
 
                         }
@@ -140,7 +148,7 @@ namespace Tvättmaskinen
                         switch (misLifeVersion)
                         {
                             case "mislife00":
-                                fileName = misLife20.CleanFile(doc, anonymizedSurName);
+                                fileName = misLife20.CleanFile(doc, anonymizedFörnamn);
                                 break;
                         }
                     }

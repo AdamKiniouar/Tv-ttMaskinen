@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Linq;
 using Tvättmaskinen;
 
 namespace ConsoleTvättmaskinen
@@ -9,24 +10,51 @@ namespace ConsoleTvättmaskinen
         public static void Main(string[] args)
         {
             Console.WriteLine("Tvättmaskinen is booting up...");
-            var anonymizedSurName = "TestPerson";
+            var anonymizedFörnamn = "";
+            var filePath = "";
 
-            var file = @"C:\Users\Adam_\Desktop\MiP";
+            if (args.Length != 2 || args.Where(argument => argument == "help").Any())
+            {
+                LogHelpText();
+                return; 
+            }
+            
+            foreach(var arg in args)
+            {
+                if (arg.ToLower().Contains("path"))
+                {
+                    filePath = arg.Split('=')[1];
+                }
+
+                if(arg.ToLower().Contains("name")){
+                    anonymizedFörnamn = arg.Split('=')[1];
+                }
+            }
+
             var serviceProvider = ConfigureService();
             var sortering = serviceProvider.GetService<ISortering>();
 
             try
             {
-                sortering.SavePath(file);
+                sortering.SavePath(filePath);
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex);
             }
             
-            sortering.Sort(file, anonymizedSurName);
+            sortering.Sort(filePath, anonymizedFörnamn);
 
             Console.Read();
+        }
+
+        private static void LogHelpText()
+        {
+            Console.WriteLine("Args till tvätt");
+            Console.WriteLine("path     sökväg till svarsfiler");
+            Console.WriteLine("name     namn personer kommer döpas till");
+            Console.WriteLine("");
+            Console.WriteLine("Exempel: ConsoleTvättmaskinen.exe path=D:\\tvätt\\alecta namn=Adam");
         }
 
         private static ServiceProvider ConfigureService()

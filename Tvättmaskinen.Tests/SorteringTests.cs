@@ -31,19 +31,20 @@ namespace Tvättmaskinen.Tests
 
             var actual = sut.GetAllXmlFiles(testFilesDirectory);
 
-            const int expectedNumberOfFiles = 5;
+            const int expectedNumberOfFiles = 10;
             Assert.Equal(expectedNumberOfFiles, actual.Length);
         }
 
         [Fact]
-        public void GetSavePath_ShouldReturnString()
+        public void GetSavePath_ShouldReturnNewFolderString()
         {
+            var todaysDate = DateTime.Now.ToString("-yyyy-MM-dd");
             var testFilesDirectory = GetTestFilesDirectory();
             var sut = CreateSut();
 
-            var actual = sut.SavePath(testFilesDirectory);
+            string actual = sut.SavePath(testFilesDirectory);
 
-            var expected = testFilesDirectory + "/Tvättade/";
+            var expected = testFilesDirectory + "/Tvättade" + todaysDate + "/";
             Assert.Equal(expected, actual);
         }
 

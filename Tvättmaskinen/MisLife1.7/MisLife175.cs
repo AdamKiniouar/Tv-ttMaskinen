@@ -5,39 +5,38 @@ namespace Tvättmaskinen
 {
     public class MisLife175 : IMisLife175
     {
-        public string CleanFile(XmlDocument doc, string anonymizedSurname)
+        public string CleanFile(XmlDocument doc, string anonymizedFörnamn)
         {
             var fileName = "";
-            var anonymizedLastname = "";
+            var anonymizedEfternamn = "";
 
-            var ForsakringsList = doc.GetElementsByTagName("ml:Forsakring");
-            foreach (XmlNode forsakring in ForsakringsList)
+            var försäkringList = doc.GetElementsByTagName("ml:Forsakring");
+            foreach (XmlNode försäkring in försäkringList)
             {
-                anonymizedLastname = forsakring.Attributes["KollektivavtalKod"].Value;
+                anonymizedEfternamn = försäkring.Attributes["KollektivavtalKod"].Value;
             }
 
-            var forsakringsList = doc.GetElementsByTagName("ml:Forsakring");
-            foreach (XmlNode forsakringsiD in forsakringsList)
+            foreach (XmlNode försäkringId in försäkringList)
             {
-                forsakringsiD.Attributes["Id"].Value = Guid.NewGuid().ToString();
+                försäkringId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
             var momentList = doc.GetElementsByTagName("ml:Moment");
-            foreach (XmlNode momentsId in momentList)
+            foreach (XmlNode momentId in momentList)
             {
-                momentsId.Attributes["Id"].Value = Guid.NewGuid().ToString();
+                momentId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
-            var fornamnsList = doc.GetElementsByTagName("ml:Fornamn");
-            foreach (XmlNode fornamn in fornamnsList)
+            var förnamnList = doc.GetElementsByTagName("ml:Fornamn");
+            foreach (XmlNode förnamn in förnamnList)
             {
-                fornamn.InnerText = anonymizedSurname;
+                förnamn.InnerText = anonymizedFörnamn;
             }
 
-            var efternamnsList = doc.GetElementsByTagName("ml:Efternamn");
-            foreach (XmlNode Efternamn in efternamnsList)
+            var efternamnList = doc.GetElementsByTagName("ml:Efternamn");
+            foreach (XmlNode Efternamn in efternamnList)
             {
-                Efternamn.InnerText = anonymizedLastname;
+                Efternamn.InnerText = anonymizedEfternamn;
             }
 
             var personNummerList = doc.GetElementsByTagName("ml:Personnummer");

@@ -4,6 +4,6 @@ namespace Tvättmaskinen
 {
     public interface IMisLife173
     {
-        string CleanFile(XmlDocument doc, string anonymizedSurname);
+        string CleanFile(XmlDocument doc, string anonymizedFörnamn);
     }
 }

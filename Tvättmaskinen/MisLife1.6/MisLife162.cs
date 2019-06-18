@@ -5,17 +5,17 @@ namespace Tvättmaskinen
 {
     public class MisLife162 : IMisLife162
     {
-        public string CleanFile(XmlDocument doc, string anonymizedSurname)
+        public string CleanFile(XmlDocument doc, string anonymizedFörnamn)
         {
             var fileName = "";
-            var anonymizedLastname = "";
+            var anonymizedEfternamn = "";
 
             var indicatorList = doc.GetElementsByTagName("indicator");
             foreach (XmlNode indicator in indicatorList)
             {
                 if (indicator.Attributes["itype"].Value == "PKMP")
                 {
-                    anonymizedLastname = indicator.Attributes["ind"].Value;
+                    anonymizedEfternamn = indicator.Attributes["ind"].Value;
                 }
             }
 
@@ -31,13 +31,13 @@ namespace Tvättmaskinen
             var firstnameList = doc.GetElementsByTagName("firstname");
             foreach (XmlNode firstname in firstnameList)
             {
-                firstname.InnerText = anonymizedSurname;
+                firstname.InnerText = anonymizedFörnamn;
             }
 
             var lastnameList = doc.GetElementsByTagName("lastname");
             foreach (XmlNode lastname in lastnameList)
             {
-                lastname.InnerText = anonymizedLastname;
+                lastname.InnerText = anonymizedEfternamn;
             }
 
             var streetpobList = doc.GetElementsByTagName("streetpob");

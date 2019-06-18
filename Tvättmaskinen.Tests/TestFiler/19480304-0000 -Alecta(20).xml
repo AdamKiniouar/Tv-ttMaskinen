@@ -1,0 +1,42 @@
+<mis20:mislife version="mislife00" xmlns:mis20="http://www.mis.sfm.se/mis20" xmlns:mis2Util="http://schemas.microsoft.com/BizTalk/2003/userCSharp">
+	<mis20:filinformation>
+		<mis20:avsandare>
+			<mis20:organisationsnummer>16502014-0000</mis20:organisationsnummer>
+			<mis20:organisationsnamn>Alecta pensionsförsäkring, ömsesidigt</mis20:organisationsnamn>
+		</mis20:avsandare>
+		<mis20:mottagare>
+			<mis20:organisationsnummer>16556650-3495</mis20:organisationsnummer>
+		</mis20:mottagare>
+		<mis20:skapadTidpunkt>2019-04-24T09:10:24</mis20:skapadTidpunkt>
+		<mis20:transaktionsIdentitet>df257a01-ff4c-4624-94ef-6cb704677ae2</mis20:transaktionsIdentitet>
+	</mis20:filinformation>
+	<!--*****Avgått i pernsioneringssyfte/Kan ej levereras *****-->
+	<mis20:forsakring>
+		<mis20:informationstidpunkt>2019-02-01</mis20:informationstidpunkt>
+		<mis20:andringstidpunkt>2019-01-01</mis20:andringstidpunkt>
+		<mis20:parter>
+			<mis20:forsakrad>
+				<mis20:personnummer>19480304-0000</mis20:personnummer>
+				<mis20:fornamn>Blarren</mis20:fornamn>
+				<mis20:efternamn>Torsson</mis20:efternamn>
+			</mis20:forsakrad>
+			<mis20:forsakringsgivare>
+				<mis20:organisationsnummer>16502014-0000</mis20:organisationsnummer>
+				<mis20:organisationsnamn>Alecta pensionsförsäkring, ömsesidigt</mis20:organisationsnamn>
+			</mis20:forsakringsgivare>
+		</mis20:parter>
+		<mis20:administration>
+			<mis20:forsakringsnummer>194803040000-1</mis20:forsakringsnummer>
+			<mis20:teckningsdatum>2008-01-01</mis20:teckningsdatum>
+			<mis20:datering>2008-01-01</mis20:datering>
+			<mis20:kollektivavtalskoppling>
+				<mis20:arKollektivavtalad>true</mis20:arKollektivavtalad>
+				<mis20:avtalsomrade>ITP</mis20:avtalsomrade>
+				<mis20:avdelning>ITP2</mis20:avdelning>
+			</mis20:kollektivavtalskoppling>
+		</mis20:administration>
+		<mis20:undantag>
+			<mis20:standardkod>Försäkrad har avgått i pensioneringssyfte</mis20:standardkod>
+		</mis20:undantag>
+	</mis20:forsakring>
+</mis20:mislife>

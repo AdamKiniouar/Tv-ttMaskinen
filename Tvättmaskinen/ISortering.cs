@@ -12,8 +12,8 @@ namespace Tvättmaskinen
 
         string SavePath(string path);
 
-        void Sort(string filePath, string anonymizedSurName);
+        void Sort(string filePath, string anonymizedFörnamn);
 
-        void CleanAndSave(string personnummer, string anonymizedSurName, FileInfo[] files);
+        void CleanAndSave(string personnummer, string anonymizedFörnamn, FileInfo[] files);
     }
 }

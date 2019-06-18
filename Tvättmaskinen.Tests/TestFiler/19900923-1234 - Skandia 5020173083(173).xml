@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mislife version="mislife-1.7.3" xmlns="http://schemas.sfm.se/mislife-1.7.3">
+  <party pno="16502017-3083" ptype="S" />
+  <!-- Observera att detta TxId är slumpmässigt. Det har ingen anknytning till den data från vilken denna svarsfil skapats. -->
+  <reference reftype="TXID">ab1fe74e-a308-43ae-a807-f9e6c2b1b900</reference>
+  <datetime dttype="CD">2016-03-03T16:53:02.6853837+01:00</datetime>
+  <Forsakring Id="102" Informationstidpunkt="2016-02-20T00:00:00.000" KollektivavtalKod="Kapkl" xmlns="http://schemas.sfm.se/mislife-1.7.3">
+    <Parter>
+      <Forsakrad>
+        <Personnummer>19900923-1234</Personnummer>
+      </Forsakrad>
+      <Forsakringstagare xsi:type="OrganisationType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Organisationsnummer>232100-0222</Organisationsnummer>
+      </Forsakringstagare>
+    </Parter>
+    <Moment Id="99" MomenttypKod="Livranta" Status="Fribrev" xsi:type="FormansbestamdAlderspensionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <Teckningstyp>Tjanst</Teckningstyp>
+      <Skattekategori>Pension</Skattekategori>
+      <Formansunderlag>
+        <Prognosstart>2016-02</Prognosstart>
+        <AvtaladPensionsalder>P64Y11M</AvtaladPensionsalder>
+      </Formansunderlag>
+      <Formaner>
+        <Forman HarTolftedelsomraknats="false" Typ="Fribrev" Utbetalningstermin="1" Utbetalningstyp="LopandeUtbetalning">
+          <Belopp Indexeringsar="2016" Indexeringstyp="Prisbasbelopp">7</Belopp>
+          <Villkor>MomentFortsattEjAktiv</Villkor>
+          <Utbetalningsalder>P65Y0M</Utbetalningsalder>
+          <Utbetalningstid Typ="Livsvarig"></Utbetalningstid>
+        </Forman>
+      </Formaner>
+    </Moment>
+  </Forsakring>
+  <Forsakring Id="103" Informationstidpunkt="2016-02-20T00:00:00.000" KollektivavtalKod="Kapkl" xmlns="http://schemas.sfm.se/mislife-1.7.3">
+    <Parter>
+      <Forsakrad>
+        <Personnummer>19900923-1234</Personnummer>
+      </Forsakrad>
+      <Forsakringstagare xsi:type="OrganisationType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Organisationsnummer>232100-0222</Organisationsnummer>
+      </Forsakringstagare>
+    </Parter>
+    <Moment Id="100" MomenttypKod="Standard" Status="Fribrev" xsi:type="FormansbestamdAlderspensionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <Teckningstyp>Tjanst</Teckningstyp>
+      <Skattekategori>Pension</Skattekategori>
+      <Formaner></Formaner>
+    </Moment>
+    <Undantag>
+      <Kod>Annat</Kod>
+      <InternKod>KanBaraSimuleraHogrePensionsalder</InternKod>
+    </Undantag>
+  </Forsakring>
+</mislife>
