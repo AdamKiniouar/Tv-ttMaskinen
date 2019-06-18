@@ -10,7 +10,7 @@ namespace ConsoleTvättmaskinen
         public static void Main(string[] args)
         {
             Console.WriteLine("Tvättmaskinen is booting up...");
-            var anonymizedSurName = "";
+            var anonymizedFörnamn = "";
             var filePath = "";
 
             if (args.Length != 2 || args.Where(argument => argument == "help").Any())
@@ -27,7 +27,7 @@ namespace ConsoleTvättmaskinen
                 }
 
                 if(arg.ToLower().Contains("name")){
-                    anonymizedSurName = arg.Split('=')[1];
+                    anonymizedFörnamn = arg.Split('=')[1];
                 }
             }
 
@@ -43,7 +43,7 @@ namespace ConsoleTvättmaskinen
                 Console.WriteLine(ex);
             }
             
-            sortering.Sort(filePath, anonymizedSurName);
+            sortering.Sort(filePath, anonymizedFörnamn);
 
             Console.Read();
         }

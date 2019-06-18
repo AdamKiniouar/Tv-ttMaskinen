@@ -5,19 +5,18 @@ namespace Tvättmaskinen
 {
     public class MisLife171 : IMisLife171
     {
-        public string CleanFile(XmlDocument doc, string anonymizedSurname)
+        public string CleanFile(XmlDocument doc, string anonymizedFörnamn)
         {
             var fileName = "";
-            var anonymizedLastname = "";
+            var anonymizedEfternamn = "";
 
             var anslutningList = doc.GetElementsByTagName("ml:Anslutning");
             foreach (XmlNode anslutning in anslutningList)
             {
-                anonymizedLastname = anslutning.Attributes["AvtalKod"].Value;
+                anonymizedEfternamn = anslutning.Attributes["AvtalKod"].Value;
             }
 
-            var anslutningIdList = doc.GetElementsByTagName("ml:Anslutning");
-            foreach (XmlNode anslutningId in anslutningIdList)
+            foreach (XmlNode anslutningId in anslutningList)
             {
                 anslutningId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
@@ -28,16 +27,16 @@ namespace Tvättmaskinen
                 momentId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
-            var fornamnList = doc.GetElementsByTagName("ml:Fornamn");
-            foreach (XmlNode fornamn in fornamnList)
+            var förnamnList = doc.GetElementsByTagName("ml:Fornamn");
+            foreach (XmlNode förnamn in förnamnList)
             {
-                fornamn.InnerText = anonymizedSurname;
+                förnamn.InnerText = anonymizedFörnamn;
             }
 
             var efternamnList = doc.GetElementsByTagName("ml:Efternamn");
             foreach (XmlNode Efternamn in efternamnList)
             {
-                Efternamn.InnerText = anonymizedLastname;
+                Efternamn.InnerText = anonymizedEfternamn;
             }
 
             var personNummerList = doc.GetElementsByTagName("ml:Personnummer");

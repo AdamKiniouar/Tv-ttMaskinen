@@ -5,21 +5,20 @@ namespace Tvättmaskinen
 {
     public class MisLife174 : IMisLife174
     {
-        public string CleanFile(XmlDocument doc, string anonymizedSurname)
+        public string CleanFile(XmlDocument doc, string anonymizedFörnamn)
         {
             var fileName = "";
-            var anonymizedLastname = "";
+            var anonymizedEfternamn = "";
 
-            var forsakringList = doc.GetElementsByTagName("ml:Forsakring");
-            foreach (XmlNode forsakring in forsakringList)
+            var försäkringList = doc.GetElementsByTagName("ml:Forsakring");
+            foreach (XmlNode försäkring in försäkringList)
             {
-                anonymizedLastname = forsakring.Attributes["KollektivavtalKod"].Value;
+                anonymizedEfternamn = försäkring.Attributes["KollektivavtalKod"].Value;
             }
 
-            var forsakringsIdList = doc.GetElementsByTagName("ml:Forsakring");
-            foreach (XmlNode forsakringiD in forsakringsIdList)
+            foreach (XmlNode försäkringId in försäkringList)
             {
-                forsakringiD.Attributes["Id"].Value = Guid.NewGuid().ToString();
+                försäkringId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
             var administrationList = doc.GetElementsByTagName("ml:Administration");
@@ -34,16 +33,16 @@ namespace Tvättmaskinen
                 momentId.Attributes["Id"].Value = Guid.NewGuid().ToString();
             }
 
-            var fornamnList = doc.GetElementsByTagName("ml:Fornamn");
-            foreach (XmlNode fornamn in fornamnList)
+            var förnamnList = doc.GetElementsByTagName("ml:Fornamn");
+            foreach (XmlNode förnamn in förnamnList)
             {
-                fornamn.InnerText = anonymizedSurname;
+                förnamn.InnerText = anonymizedFörnamn;
             }
 
             var efternamnList = doc.GetElementsByTagName("ml:Efternamn");
             foreach (XmlNode Efternamn in efternamnList)
             {
-                Efternamn.InnerText = anonymizedLastname;
+                Efternamn.InnerText = anonymizedEfternamn;
             }
 
             var personNummerList = doc.GetElementsByTagName("ml:Personnummer");
