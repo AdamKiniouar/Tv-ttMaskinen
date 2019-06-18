@@ -75,6 +75,14 @@ namespace Tvättmaskinen
         {
             var di = new DirectoryInfo(Path);            
             var files = di.GetFiles("*.xml");
+            if(files.Length > 1)
+            {
+                return files;
+            }
+            else
+            {
+                Console.WriteLine("OBS! Inga XML filer funna i den angivna mappen!");
+            }
             return files;
         }
         

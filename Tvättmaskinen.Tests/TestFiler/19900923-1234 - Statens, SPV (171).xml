@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mislife version="mislife-1.7.1" xmlns="http://schemas.sfm.se/mislife-1.7.1">
+  <party pno="16202100-0928" ptype="S" />
+  <!-- Observera att detta TxId är slumpmässigt. Det har ingen anknytning till den data från vilken denna svarsfil skapats. -->
+  <reference reftype="TXID">e6e2b4d5-ffb1-408f-b3f7-0b4b6adce26e</reference>
+  <datetime dttype="CD">2015-10-15T15:16:59.2456808+02:00</datetime>
+  <ml:Anslutning AvtalKod="Pa03" Informationstidpunkt="2015-08-25T17:10:05" Id="fdc7ced0-d046-4fc3-a510-2b0023462ebd" xmlns:ml="http://schemas.sfm.se/mislife-1.7.1">
+    <ml:Tillampningsspecifikt>
+      <n1:Avgangsoption xsi:nil="true" xmlns:n1="http://schemas.spv.se/tillampningsspecifikt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></n1:Avgangsoption>
+      <n1:AlderForGaranteradAPFRattHarUppnatts xsi:nil="true" xmlns:n1="http://schemas.spv.se/tillampningsspecifikt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></n1:AlderForGaranteradAPFRattHarUppnatts>
+    </ml:Tillampningsspecifikt>
+    <ml:Parter>
+      <ml:Forsakrad>
+        <ml:Personnummer>19900923-1234</ml:Personnummer>
+      </ml:Forsakrad>
+    </ml:Parter>
+    <ml:Moment xsi:type="ml:FormansbestamdAlderspensionType" Status="Aktiv" Id="99d39a84-9390-4180-936b-310f506a5cb1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <ml:Momenttyp>
+        <ml:Kod>Pa03</ml:Kod>
+      </ml:Momenttyp>
+      <ml:Skattekategori>Pension</ml:Skattekategori>
+      <ml:Tillampningsspecifikt>
+        <n1:TjanstetidExklStp ArAktiv="false" xmlns:n1="http://schemas.spv.se/tillampningsspecifikt">P310M</n1:TjanstetidExklStp>
+      </ml:Tillampningsspecifikt>
+      <ml:Formansunderlag>
+        <ml:Prognosstart>2015-07</ml:Prognosstart>
+        <ml:AnstalldAllaDagarUnderPrognosaret>true</ml:AnstalldAllaDagarUnderPrognosaret>
+        <ml:Anslutningsar>2003</ml:Anslutningsar>
+        <ml:Loneuppgifter>
+          <ml:SenastePensionsunderlag Loneperiod="Ar" Ar="2014">399478.00</ml:SenastePensionsunderlag>
+          <ml:PensionsgrundandeLoner>
+            <ml:PensionsgrundandeLon Ar="2014">
+              <ml:Pensionsalder>P779M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">371500.00</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">41441.00</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2013">
+              <ml:Pensionsalder>P779M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">364980.00</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">41645.00</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2012">
+              <ml:Pensionsalder>P779M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">355275.00</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">44378.00</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2011">
+              <ml:Pensionsalder>P779M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">348300.00</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">32800.00</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2010">
+              <ml:Pensionsalder>P779M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">336000.00</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">26944.00</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2014">
+              <ml:Pensionsalder>P732M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">0</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">0</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2013">
+              <ml:Pensionsalder>P732M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">0</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">0</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2012">
+              <ml:Pensionsalder>P732M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">0</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">0</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2011">
+              <ml:Pensionsalder>P732M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">0</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">0</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2010">
+              <ml:Pensionsalder>P732M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">0</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">0</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2014">
+              <ml:Pensionsalder>P720M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">0</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">0</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2013">
+              <ml:Pensionsalder>P720M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">0</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">0</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2012">
+              <ml:Pensionsalder>P720M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">0</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">0</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2011">
+              <ml:Pensionsalder>P720M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">0</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">0</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+            <ml:PensionsgrundandeLon Ar="2010">
+              <ml:Pensionsalder>P720M</ml:Pensionsalder>
+              <ml:FastLon Loneperiod="Ar">0</ml:FastLon>
+              <ml:OvrigLon Loneperiod="Ar">0</ml:OvrigLon>
+            </ml:PensionsgrundandeLon>
+          </ml:PensionsgrundandeLoner>
+        </ml:Loneuppgifter>
+        <ml:Tjanstetider>
+          <ml:Basbeloppsbegransad Basbeloppstyp="Inkomstbasbelopp" GallerFranBasbelopp="0.0" ArAktiv="false">P310M</ml:Basbeloppsbegransad>
+          <ml:Basbeloppsbegransad Basbeloppstyp="Inkomstbasbelopp" GallerFranBasbelopp="7.5" ArAktiv="false">P310M</ml:Basbeloppsbegransad>
+          <ml:Intradesaldersbegransad GallerFranIntradesalder="P335M" ArAktiv="true">P150M</ml:Intradesaldersbegransad>
+        </ml:Tjanstetider>
+        <ml:AvtaladPensionsalder>P779M</ml:AvtaladPensionsalder>
+        <ml:OvergangsbestammelsePa03>
+          <ml:Typ>OB0</ml:Typ>
+          <ml:Pensionsalder>P720M</ml:Pensionsalder>
+        </ml:OvergangsbestammelsePa03>
+      </ml:Formansunderlag>
+      <ml:Formaner>
+        <ml:Forman Typ="Fribrev" Utbetalningstermin="12">
+          <ml:Belopp Indexeringsar="2015" Indexeringstyp="Prisbasbelopp" Datum="2015-07-01">23232.00</ml:Belopp>
+          <ml:Utbetalningsalder>P780M</ml:Utbetalningsalder>
+          <ml:Utbetalningstid Typ="Livsvarig"></ml:Utbetalningstid>
+        </ml:Forman>
+      </ml:Formaner>
+    </ml:Moment>
+    <ml:Anstallning Status="Aktiv">
+      <ml:KategoriPa03>L</ml:KategoriPa03>
+    </ml:Anstallning>
+    <ml:Loner>
+      <ml:LonPa03 GallerFran="2015-01" GallerTom="2015-12">
+        <ml:FastLon Loneperiod="Ar">373358.00</ml:FastLon>
+        <ml:OvrigLon Loneperiod="Ar">41648.00</ml:OvrigLon>
+      </ml:LonPa03>
+      <ml:LonPa03 GallerFran="2015-06" GallerTom="2015-06">
+        <ml:FastLon Loneperiod="Manad">31200.00</ml:FastLon>
+        <ml:OvrigLon xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></ml:OvrigLon>
+      </ml:LonPa03>
+    </ml:Loner>
+  </ml:Anslutning>
+</mislife>

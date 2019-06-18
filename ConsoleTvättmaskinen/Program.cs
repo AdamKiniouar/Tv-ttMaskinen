@@ -11,7 +11,6 @@ namespace ConsoleTvättmaskinen
         {
             Console.WriteLine("Tvättmaskinen is booting up...");
             var anonymizedSurName = "";
-
             var filePath = "";
 
             if (args.Length != 2 || args.Where(argument => argument == "help").Any())

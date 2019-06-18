@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mislife version="mislife-1.7.4" xmlns="http://schemas.sfm.se/mislife-1.7.4">
+  <party pno="16516401-6544" ptype="S" />
+  <!-- Observera att detta TxId är slumpmässigt. Det har ingen anknytning till den data från vilken denna svarsfil skapats. -->
+  <reference reftype="TXID">c4aff62e-505a-4edb-8680-f849e984b447</reference>
+  <datetime dttype="CD">2017-11-07T09:42:01.1673707+01:00</datetime>
+  <ml:Forsakring Id="102824872" Informationstidpunkt="2017-09-21T00:00:00" KollektivavtalKod="Kapkl" ProduktKod="PTR" xmlns:ml="http://schemas.sfm.se/mislife-1.7.4">
+    <ml:Parter>
+      <ml:Forsakrad>
+        <ml:Personnummer>19700925-1234</ml:Personnummer>
+		<ml:Fornamn>Regression</ml:Fornamn>
+		<ml:Efternamn>KAP-KL Lön 26800 65år</ml:Efternamn>
+      </ml:Forsakrad>
+    </ml:Parter>
+    <ml:Administration Forsakringsnummer="5832094-80">
+      <ml:Forvaltningsfordelning>
+        <ml:TraditionellProcent>100</ml:TraditionellProcent>
+      </ml:Forvaltningsfordelning>
+    </ml:Administration>
+    <ml:Anstallning Status="Aktiv" />
+    <ml:Moment Id="176708454" MomenttypKod="Aldre" MomenttypKodAldre="KapklKompletterande" Status="Fribrev" xsi:type="ml:PremiebestamdAlderspensionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <ml:Teckningsdatum>2012-03-01</ml:Teckningsdatum>
+      <ml:Teckningstyp>Tjanst</ml:Teckningstyp>
+      <ml:Skattekategori>Pension</ml:Skattekategori>
+      <ml:Forvaltningstyp>Traditionell</ml:Forvaltningstyp>
+      <ml:Kapital>
+        <ml:Traditionell>
+          <ml:Retrospektivreserv Datum="2017-09-01">97367.00</ml:Retrospektivreserv>
+        </ml:Traditionell>
+      </ml:Kapital>
+      <ml:Utbetalningsalder>P780M</ml:Utbetalningsalder>
+      <ml:Utbetalningstid Typ="Livsvarig" />
+    </ml:Moment>
+  </ml:Forsakring>
+</mislife>
