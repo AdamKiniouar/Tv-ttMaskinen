@@ -49,7 +49,7 @@ namespace Tvättmaskinen
             var partyList = doc.GetElementsByTagName("party");
             foreach (XmlNode party in partyList)
             {
-                if (party.Attributes["ptype"].Value == "IP" || party.Attributes["ptype"].Value == "IN")
+                if (party.Attributes["ptype"].Value == "IP")
                 {
                     var lastButOneDigitInPersonalNumber = party.Attributes["pno"].Value[11];
 

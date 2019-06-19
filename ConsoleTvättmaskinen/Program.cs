@@ -54,7 +54,7 @@ namespace ConsoleTvättmaskinen
             Console.WriteLine("path     sökväg till svarsfiler");
             Console.WriteLine("name     namn personer kommer döpas till");
             Console.WriteLine("");
-            Console.WriteLine("Exempel: ConsoleTvättmaskinen.exe path=D:\\tvätt\\alecta namn=Adam");
+            Console.WriteLine("Exempel: dotnet ConsoleTvättmaskinen.dll path=D:\\tvätt\\alecta name=Adam");
         }
 
         private static ServiceProvider ConfigureService()
